@@ -1,11 +1,11 @@
 # litter-app
-Facilitating the planning and organisation of fly tip cleanups
+Facilitating the planning and organisation of fly-tip cleanups
 
 [Link to prototype](https://github.com/JWLD/litter-locator)
 
 #### User Journeys:
 
-- People can document litter sites (ie fly tipping, build-ups of illegal litter, or undesirable waste located in public areas), and report details of its size, location, and type.
+- People can document litter sites (i.e. fly-tipping, build-ups of illegal litter, or undesirable waste located in public areas), and report details of its size, location, and type.
 
 - Volunteers and concerned citizens can then browse documented litter sites by location using map UIs, and view the litter sites' details in order to plan cleanups to remove the waste.
 
@@ -34,7 +34,7 @@ Facilitating the planning and organisation of fly tip cleanups
 
 - Node.js  
   - handlebars
-  
+
 ###### Maps
   - Leaflets.js  
 
