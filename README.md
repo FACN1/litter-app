@@ -4,13 +4,12 @@ Facilitating the planning and organisation of fly-tip cleanups
 [Link to prototype](https://github.com/JWLD/litter-locator)
 
 #### User Journeys:
-
 - People can document litter sites (i.e. fly-tipping, build-ups of illegal litter, or undesirable waste located in public areas), and report details of its size, location, and type.
 
 - Volunteers and concerned citizens can then browse documented litter sites by location using map UIs, and view the litter sites' details in order to plan cleanups to remove the waste.
 
 #### User Stories
-- [ ] As someone visiting the page I want to be presented with a brief description of the app's purpose, so I can determine whether its of use to me.
+- [ ] As someone visiting the page I want to be presented with a brief description of the app's purpose, so I can determine whether it's of use to me.
 
 - [ ] As a user of the app, I want to be able to navigate  between the various pages so I can easily access the feature that is of most use to me.
 
@@ -33,7 +32,9 @@ Facilitating the planning and organisation of fly-tip cleanups
 ###### Server-side rendering:
 
 - Node.js  
+  - hapi.js
   - handlebars
+
 
 ###### Maps
   - Leaflets.js  
@@ -45,14 +46,9 @@ Facilitating the planning and organisation of fly-tip cleanups
   - Amazon D3
 
 
-Technologues:
-images D3
-notes - compress the image in the browser
-
-
 #### Stretch Goals:
 - OAuth (Gmail)
   - Comments section under each litter post
-  - Event planning system (ie date picker)
+  - Event planning system (i.e. date picker)
 - Filtering on browse map (database queries)
 - Image compression within browser before uploading to database.
