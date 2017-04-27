@@ -29,6 +29,21 @@ Facilitating the planning and organisation of fly tip cleanups
 - [Trashout.ngo](http://trashout.ngo/)
 - [Litter Action](http://litteraction.org.uk)
 
+#### Tech Stack
+###### Server-side rendering:
+
+- Node.js  
+  - handlebars
+  
+###### Maps
+  - Leaflets.js  
+
+###### Data Storage
+  - PostgreSQL
+
+###### Image storage
+  - Amazon D3
+-
 
 Technologues:
 images D3
