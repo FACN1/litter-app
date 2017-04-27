@@ -30,7 +30,6 @@ Facilitating the planning and organisation of fly-tip cleanups.
 
 #### Tech Stack
 ###### Server-side rendering
-
 - Node.js  
   - hapi.js
   - handlebars
@@ -43,7 +42,7 @@ Facilitating the planning and organisation of fly-tip cleanups.
   - PostgreSQL
 
 ###### Image storage
-  - Amazon D3
+  - Amazon S3
 
 
 #### Stretch Goals
