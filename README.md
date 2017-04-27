@@ -43,7 +43,7 @@ Facilitating the planning and organisation of fly-tip cleanups
 
 ###### Image storage
   - Amazon D3
--
+
 
 Technologues:
 images D3
