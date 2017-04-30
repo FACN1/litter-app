@@ -3,6 +3,8 @@ Facilitating the planning and organisation of fly-tip cleanups.
 
 [Link to prototype](https://github.com/JWLD/litter-locator)
 
+### Goals
+
 #### User Journeys
 - People can document litter sites (i.e. fly-tipping, build-ups of illegal litter, or undesirable waste located in public areas), and report details of its size, location, and type.
 
@@ -23,11 +25,30 @@ Facilitating the planning and organisation of fly-tip cleanups.
 
 - [ ] As a cleanup volunteer who has identified a waste site in a map of my area, I can click on the waste site marker so I can review further details pertaining thereto.
 
-#### Inspirational Overview
+#### Stretch Goals
+- OAuth (Gmail)
+  - Comments section under each litter post
+  - Event planning system (i.e. date picker)
+- Filtering on browse map (database queries)
+- Image compression within browser before uploading to database
+
+### Stakeholders
+- Volunteers
+- Local residents
+- Charities
+- Litter-oriented entrepreneurs
+
+### Product / Process Audit
+- Local authorities cleaning streets
+- Street sweeps / bin men
+- Community service
+- Charities organising cleanups
+
+### Inspirational Overview
 - [Trashout.ngo](http://trashout.ngo/)
 - [Litter Action](http://litteraction.org.uk)
 
-#### Tech Stack
+### Tech Stack
 
 ###### Server-Side Rendering
 - Node.js  
@@ -42,16 +63,3 @@ Facilitating the planning and organisation of fly-tip cleanups.
 
 ###### Image Storage
   - Amazon S3
-
-#### Stretch Goals
-- OAuth (Gmail)
-  - Comments section under each litter post
-  - Event planning system (i.e. date picker)
-- Filtering on browse map (database queries)
-- Image compression within browser before uploading to database
-
-#### Stakeholders
-- Volunteers
-- Local residents
-- Charities
-- Litter-oriented entrepreneurs
