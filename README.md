@@ -1,7 +1,7 @@
 # litter-app
 Facilitating the planning and organisation of fly-tip cleanups.
 
-[Link to prototype](https://github.com/JWLD/litter-locator)
+Check out the [prototype code](https://github.com/JWLD/litter-locator), and see it on [github pages](https://jwld.github.io/litter-locator/).
 
 ### Goals
 
