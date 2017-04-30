@@ -28,11 +28,11 @@ Facilitating the planning and organisation of fly-tip cleanups.
 - [Litter Action](http://litteraction.org.uk)
 
 #### Tech Stack
+
 ###### Server-Side Rendering
 - Node.js  
   - hapi.js
   - handlebars
-
 
 ###### Maps
   - Leaflets.js  
@@ -49,3 +49,9 @@ Facilitating the planning and organisation of fly-tip cleanups.
   - Event planning system (i.e. date picker)
 - Filtering on browse map (database queries)
 - Image compression within browser before uploading to database
+
+#### Stakeholders
+- Volunteers
+- Local residents
+- Charities
+- Litter-oriented entrepreneurs
