@@ -23,13 +23,12 @@ Facilitating the planning and organisation of fly-tip cleanups.
 
 - [ ] As a cleanup volunteer who has identified a waste site in a map of my area, I can click on the waste site marker so I can review further details pertaining thereto.
 
-
 #### Inspirational Overview
 - [Trashout.ngo](http://trashout.ngo/)
 - [Litter Action](http://litteraction.org.uk)
 
 #### Tech Stack
-###### Server-side rendering
+###### Server-Side Rendering
 - Node.js  
   - hapi.js
   - handlebars
@@ -41,9 +40,8 @@ Facilitating the planning and organisation of fly-tip cleanups.
 ###### Data Storage
   - PostgreSQL
 
-###### Image storage
+###### Image Storage
   - Amazon S3
-
 
 #### Stretch Goals
 - OAuth (Gmail)
