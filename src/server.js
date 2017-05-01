@@ -3,6 +3,7 @@ const Vision = require('vision');
 const Inert = require('inert');
 const Routes = require('./routes/router.js');
 const Handlebars = require('handlebars');
+const Path = require('path');
 
 const server = new Hapi.Server();
 
@@ -17,12 +18,12 @@ server.register([Inert, Vision], (error) => {
     engines: {
       hbs: Handlebars
     },
-    relativeTo: __dirname,
-    helpersPath: './views/helpers',
+    relativeTo: Path.join(__dirname, 'handlebars'),
+    helpersPath: './helpers',
     path: './views',
     layout: 'layout',
-    partialsPath: './views/partials',
-    layoutPath: './views/layout'
+    partialsPath: './partials',
+    layoutPath: './layout'
   });
 
   server.route(Routes);
