@@ -1,0 +1,16 @@
+/* SIZING */
+
+body, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* FLEX */
+
+body, div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

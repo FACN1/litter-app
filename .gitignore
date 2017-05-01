@@ -1,3 +1,5 @@
 node_modules
 config.env
 npm-debug.log
+/public/style/**/*.css
+/public/style/**/*.css.map
