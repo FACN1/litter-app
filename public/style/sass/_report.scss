@@ -15,11 +15,8 @@
   z-index: 1;
 }
 
-.form-button:not(:last-child) {
-    margin-bottom: 15px;
-}
-
 .form-button {
+  outline:none;
   width: 100%;
   height: 40px;
   padding: 10px;
@@ -31,7 +28,6 @@
   padding: 0.5em;
 }
 
-.get-location-button {
-
-
+.form-button:not(:last-child) {
+  margin-bottom: 15px;
 }
