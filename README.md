@@ -70,7 +70,7 @@ Check out the [prototype](https://github.com/JWLD/litter-locator), or view it on
 | Name        | Type      | Constraints
 | ---         | ---       |
 | id          | SERIAL    | PRIMARY KEY
-| location    | POINT     | NOT NULL
+| location    | TEXT      | NOT NULL
 | image_url   | TEXT      | DEFAULT NULL
 | size        | TEXT      | NOT NULL
 | description | TEXT      | NOT NULL
@@ -79,11 +79,11 @@ Check out the [prototype](https://github.com/JWLD/litter-locator), or view it on
 ##### Tags
 | Name        | Type    | Constraints
 | ---         | ---     |
-| id          | SERIAL  | PRIMARY KEY
+| id          | INTEGER | PRIMARY KEY
 | description | TEXT    | NOT NULL
 
 ##### Posts-Tags
-| Name    | Type  | Constraints
-| ---     | ---   |
-| post_id | INT   | NOT NULL
-| tag_id  | INT   | NOT NULL
+| Name    | Type    | Constraints
+| ---     | ---     |
+| post_id | INTEGER | NOT NULL REFERENCES posts (id)
+| tag_id  | INTEGER | NOT NULL REFERENCES tags (id)
