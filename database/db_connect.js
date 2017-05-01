@@ -17,5 +17,4 @@ const options = {
   ssl: params.hostname !== 'localhost'
 };
 
-
 module.exports = new Pool(options);
