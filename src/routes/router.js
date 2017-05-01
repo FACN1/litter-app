@@ -1,6 +1,6 @@
 /* eslint-disable */
 
 module.exports = [
-  require('./staticFiles.js'),
+  require('./static_files.js'),
   require('./home.js')
 ];
