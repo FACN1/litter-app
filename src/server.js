@@ -4,16 +4,13 @@ const Inert = require('inert');
 const Routes = require('./routes/router.js');
 const Handlebars = require('handlebars');
 
-
 const server = new Hapi.Server();
 
-server.connection(
-  {
-    port: process.env.PORT || 3000
-  }
-);
-server.register([Inert, Vision], (error) => {
+server.connection({
+  port: process.env.PORT || 3000
+});
 
+server.register([Inert, Vision], (error) => {
   if (error) throw error;
 
   server.views({
@@ -29,6 +26,6 @@ server.register([Inert, Vision], (error) => {
   });
 
   server.route(Routes);
-})
+});
 
 module.exports = server;
