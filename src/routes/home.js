@@ -6,7 +6,7 @@ module.exports = {
     const context = {
       hello: 'Hello World'
     };
-    
+
     return reply.view('index', context);
   }
 };

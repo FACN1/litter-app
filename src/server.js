@@ -4,20 +4,19 @@ const Inert = require('inert');
 const Routes = require('./routes/router.js');
 const Handlebars = require('handlebars');
 
-const port = process.env.PORT || 3000;
 
 const server = new Hapi.Server();
 
 server.connection(
   {
-    port
+    port: process.env.PORT || 3000
   }
 );
 server.register([Inert, Vision], (error) => {
-  if (error) throw error;
-})
 
-server.views({
+  if (error) throw error;
+
+  server.views({
     engines: {
       hbs: Handlebars
     },
@@ -29,12 +28,7 @@ server.views({
     layoutPath: './views/layout'
   });
 
-server.route(Routes);
+  server.route(Routes);
+})
 
-server.start((error) => {
-    if (error) throw error;
-
-    console.log('Server running at:', server.info.uri);
-
-  });
-// });
+module.exports = server;
