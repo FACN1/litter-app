@@ -1,7 +1,6 @@
-const staticFiles = require('./staticFiles.js');
-const home = require('./home.js');
+/* eslint-disable */
 
 module.exports = [
-  staticFiles,
-  home,
+  require('./staticFiles.js'),
+  require('./home.js')
 ];
