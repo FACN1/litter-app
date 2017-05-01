@@ -1,6 +1,6 @@
 /* SIZING */
 
-body, div {
+body, div, section, header {
   margin: 0;
   padding: 0;
   border: 0;
@@ -9,8 +9,14 @@ body, div {
 
 /* FLEX */
 
-body, div {
+body, div, header, section {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* ELEMENT SPECIFIC */
+
+body {
+  flex-direction: column;
 }

@@ -1,0 +1,11 @@
+.page-header {
+  color: white;
+  background-color: gray;
+  width: 100%;
+  height: $header-height;
+}
+
+.content-wrapper {
+  min-height: calc(100vh - #{$header-height});
+  width: 100%;
+}
