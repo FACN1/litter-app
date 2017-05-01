@@ -5,7 +5,7 @@
   height: $header-height;
 }
 
-.content-wrapper {
+.page-content {
   min-height: calc(100vh - #{$header-height});
   width: 100%;
 }

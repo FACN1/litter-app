@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 module.exports = [
-  require('./staticFiles.js'),
-  require('./home.js'),
-  require('./report.js')
+  require('./report.js'),
+  require('./static_files.js'),
+  require('./home.js')
 ];
