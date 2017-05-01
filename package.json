@@ -1,25 +1,26 @@
 {
-  "name": "quick-start-hapi-handlebars",
+  "name": "tip-off-mvp",
   "version": "1.0.0",
-  "description": "A quick start template for a hapi.js server, using handlebars",
+  "description": "MVP - An app for facilitating the planning and organisation of fly-tipping cleanups",
   "main": "server.js",
+  "dependencies": {
+    "handlebars": "^4.0.7",
+    "hapi": "^16.1.1",
+    "inert": "^4.2.0",
+    "vision": "^4.1.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/edgarfinn/Quick-Start-Hapi-Handlebars.git"
+    "url": "git+https://github.com/FACN1/litter-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/edgarfinn/Quick-Start-Hapi-Handlebars/issues"
+    "url": "https://github.com/FACN1/litter-app/issues"
   },
-  "homepage": "https://github.com/edgarfinn/Quick-Start-Hapi-Handlebars#readme",
-  "dependencies": {
-    "handlebars": "^4.0.6",
-    "hapi": "^16.1.1",
-    "inert": "^4.2.0",
-    "vision": "^4.1.1"
-  }
+  "homepage": "https://github.com/FACN1/litter-app#readme"
 }
