@@ -1,4 +1,4 @@
 #myMap {
-  height: 100%;
+  height: calc(100vh - #{$header-height}); // 100% doesn't work :(
   width: 100%;
 }

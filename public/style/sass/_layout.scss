@@ -4,6 +4,7 @@
 }
 
 .page-content {
+  z-index: -1; // required to display header bar over leafletJS map
   min-height: calc(100vh - #{$header-height});
   width: 100%;
   background-color: #f2f2f2;
