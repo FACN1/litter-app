@@ -23,13 +23,24 @@
   left: 0;
 
   width: 100%;
-  min-height: $header-height;
-  background-color: gray;
-  box-shadow: 0 0 5px 1px #ccc;
+  height: $header-height;
+  padding: 10px 5px;
+
+  background-color: #f2f2f2;
+  box-shadow: 0 0 10px 2px #ccc;
 
   transition: 0.2s;
 }
 
 .show-dropdown {
   margin-top: $header-height;
+}
+
+.dropdown-nav-button {
+  flex-grow: 1;
+  height: 100%;
+  margin: 0 5px;
+  font: 20px $default;
+  color: $off-black;
+  background-color: white;
 }

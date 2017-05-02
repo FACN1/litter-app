@@ -6,7 +6,7 @@
 }
 
 .app-description {
-  color: #444;
+  color: $off-black;
   font: 20px Helvetica;
   font-style: italic;
 }
@@ -22,7 +22,7 @@
   margin: 10px;
   border-radius: 2px;
   font: 20px Helvetica;
-  color: #444;
+  color: $off-black;
   background-color: white;
   box-shadow: 0 0 5px 1px #ccc;
 }
