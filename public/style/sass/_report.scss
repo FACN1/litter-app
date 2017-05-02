@@ -1,7 +1,6 @@
 .form-wrap {
   flex-direction: column;
   width: 85vw;
-  min-height: calc(100vh - #{$header-height});
   background-color: white;
 }
 
@@ -20,12 +19,10 @@
   outline:none;
   width: 100%;
   height: 40px;
-  padding: 10px;
   border: 1px solid #ccc;
   background-color: #eee;
   font: 15px Helvetica;
   cursor: pointer;
-  background-color: lightgrey;
   padding: 0.5em;
 }
 

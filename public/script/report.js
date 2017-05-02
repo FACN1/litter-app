@@ -1,18 +1,22 @@
-var locationButton = document.getElementById('getLocationButton');
+(function(){
+  var locationButton = document.getElementById('getLocationButton');
 
-function getLocation() {
+  function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(showPosition);
     } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
+      // non-supprt error handling
+      console.log('Geolocation is not supported by this browser.');
     }
-}
+  };
 
-function showPosition(position) {
+
+  function showPosition(position) {
     console.log(
-    "Latitude: " + position.coords.latitude +
-    "Longitude: " + position.coords.longitude
-  )
-}
+      'Latitude: ' + position.coords.latitude +
+      'Longitude: ' + position.coords.longitude
+    );
+  };
 
-locationButton.addEventListener('click', getLocation)
+  locationButton.addEventListener('click', getLocation);
+})();
