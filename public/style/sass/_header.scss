@@ -1,0 +1,46 @@
+.page-header {
+  z-index: 1;
+  justify-content: space-between;
+  padding: 20px;
+
+  color: white;
+  background-color: $waitrose-green;
+}
+
+.page-header-title {
+  font: bold 25px $default;
+}
+
+.toggle-dropdown-button {
+  font-size: 25px !important;
+  background-color: transparent;
+  color: white;
+}
+
+.nav-dropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: $header-height;
+  padding: 10px 5px;
+
+  background-color: #f2f2f2;
+  box-shadow: 0 0 10px 2px #ccc;
+
+  transition: 0.2s;
+}
+
+.show-dropdown {
+  margin-top: $header-height;
+}
+
+.dropdown-nav-button {
+  flex-grow: 1;
+  height: 100%;
+  margin: 0 5px;
+  font: 20px $default;
+  color: $text-off-black;
+  background-color: white;
+}
