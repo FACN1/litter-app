@@ -8,7 +8,7 @@
   box-shadow: 0 0 5px 1px #ccc;
   z-index: 1;
 }
-.input-label {
+.input-label, .type-label, .type-wrap {
   font: 15px $default;
   font-weight: 500;
   margin-bottom: 2px;
@@ -36,4 +36,26 @@
 
 .image-input {
   display: none;
+}
+
+.type-checkbox {
+  margin-right: 3px;
+
+}
+.type-wrap {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  background-color: #eee;
+
+}
+
+.type-row {
+  margin: 8px;
+}
+
+.type-col {
+  flex: 1;
+  justify-content: flex-start;
+  font-size: 13px;
 }
