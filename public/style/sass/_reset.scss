@@ -1,6 +1,6 @@
 /* SIZING */
 
-body, div, header, section, select, label, button {
+body, div, header, section, h1, select, label, button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -28,4 +28,8 @@ a {
 
 button, a {
   cursor: pointer;
+}
+
+button:focus {
+  outline: none;
 }
