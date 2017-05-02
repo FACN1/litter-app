@@ -3,7 +3,7 @@ module.exports = {
   path: '/browse',
   handler: (request, reply) => {
     const context = {
-      title: 'Browse Sites'
+      title: 'Browse Map'
     };
 
     return reply.view('browse', context);
