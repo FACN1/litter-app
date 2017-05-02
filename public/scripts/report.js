@@ -1,4 +1,6 @@
 (function(){
+
+  // GET LOCATION
   var locationButton = document.getElementById('getLocationButton');
 
   function getLocation() {
@@ -19,4 +21,7 @@
   };
 
   locationButton.addEventListener('click', getLocation);
+
+
+
 })();
