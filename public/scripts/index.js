@@ -1,4 +1,5 @@
 (function() {
+  // add event listener to toggle dropdown panel when button is clicked
   var dropdownButton = document.getElementById('toggleDropdown');
   var dropdownPanel = document.getElementById('dropdownPanel');
 
