@@ -1,6 +1,8 @@
 (function() {
+  var mapDiv = document.getElementById('myMap');
+
   // set up map config - get mapbox token and location
-  var mapBoxToken = document.getElementById('myMap').dataset.token;
+  var mapBoxToken = mapDiv.dataset.token;
 
   if (!navigator.geolocation) {
     setUpMap(51.5285582, -0.2417011); // default to London UK
@@ -21,5 +23,20 @@
       id: 'mapbox.streets',
       accessToken: mapBoxToken
     }).addTo(myMap);
+
+    addMarkers(myMap);
+  }
+
+  // add markers to map
+  function addMarkers(myMap) {
+    // add 3 dummy markers for now
+    L.marker([32.701509, 35.310147], {alt: 34812}).addTo(myMap).on('click', logID);
+    L.marker([32.693757, 35.299489], {alt: 12493}).addTo(myMap).on('click', logID);
+    L.marker([32.705186, 35.296820], {alt: 85434}).addTo(myMap).on('click', logID);
+
+    // log their alt text when clicked
+    function logID(event) {
+      console.log(event.target.options.alt);
+    }
   }
 })();
