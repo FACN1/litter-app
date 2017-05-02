@@ -6,6 +6,23 @@
 }
 
 .app-description {
+  color: #444;
   font: 20px Helvetica;
   font-style: italic;
+}
+
+.index-button-wrap {
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.index-button {
+  height: 50px;
+  width: 60vw;
+  margin: 10px;
+  border-radius: 2px;
+  font: 20px Helvetica;
+  color: #444;
+  background-color: white;
+  box-shadow: 0 0 8px 2px #ccc;
 }

@@ -9,7 +9,7 @@ body, div, header, section {
 
 /* FLEX */
 
-body, div, header, section {
+body, div, header, section, a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,4 +19,12 @@ body, div, header, section {
 
 body, section {
   flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+button, a {
+  cursor: pointer;
 }
