@@ -5,7 +5,6 @@
 
   color: white;
   background-color: $waitrose-green;
-  box-shadow: 0 0 5px 1px #ccc;
 }
 
 .page-header-title {
@@ -16,4 +15,21 @@
   font-size: 25px !important;
   background-color: transparent;
   color: white;
+}
+
+.nav-dropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  min-height: $header-height;
+  background-color: gray;
+  box-shadow: 0 0 5px 1px #ccc;
+
+  transition: 0.2s;
+}
+
+.show-dropdown {
+  margin-top: $header-height;
 }
