@@ -3,7 +3,7 @@ module.exports = {
   path: '/report',
   handler: (request, reply) => {
     const context = {
-      title: 'Report'
+      title: 'Report Waste'
     };
 
     return reply.view('report', context);
