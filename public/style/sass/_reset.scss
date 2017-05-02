@@ -1,6 +1,6 @@
 /* SIZING */
 
-body, div, header, section {
+body, div, header, section, label {
   margin: 0;
   padding: 0;
   border: 0;
@@ -9,7 +9,7 @@ body, div, header, section {
 
 /* FLEX */
 
-body, div, header, section, a {
+body, div, header, section, a, label {
   display: flex;
   justify-content: center;
   align-items: center;
