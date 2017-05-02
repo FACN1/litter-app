@@ -6,15 +6,19 @@
 
     <form class="report-form" action="/" method="post">
 
+      <!-- image input -->
       <input class="form-button image-input" type="file" id="imageFile" accept="image/*" name="image">
 
-      <label class="form-button" for="imageFile">Choose an image</label>
+      <label for="imageInputLabel">Upload image:</label>
 
+      <label class="form-button" id="imageInputLabel" for="imageFile">Choose an image</label>
+
+      <!-- location input -->
+      <label for="getLocationButton">Provide location:</label>
       <button class="form-button" id="getLocationButton" type="button" name="location">Submit Location</button>
 
-        <label for="sizeSelect">How big is the waste?</label>
+        <label for="sizeSelect">The waste fits in a:</label>
         <select class="form-button" id="sizeSelect" name="">
-          <option value="">How big is the waste?</option>
           <option value="binbag">Binbag</option>
           <option value="wheelbarrow">Wheelbarrow</option>
           <option value="car">Car</option>
