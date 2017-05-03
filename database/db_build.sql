@@ -61,4 +61,9 @@ INSERT INTO posts_tags (post_id, tag_id) VALUES
 (2, 2),
 (3, 2);
 
+INSERT INTO markers (post_id, latitude, longitude) VALUES
+(1, 32.701509, 35.310147),
+(2, 32.693757, 35.299489),
+(3, 51.528558, -0.241701);
+
 COMMIT;
