@@ -11,3 +11,8 @@
 .my-map form {
   width: 85vw;
 }
+
+// hide leaflet attribution box
+.leaflet-control-attribution {
+  display: none;
+}
