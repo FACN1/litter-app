@@ -45,7 +45,8 @@
     var provider = new OpenStreetMapProvider();
 
     var searchControl = new GeoSearchControl({
-      provider: provider
+      provider: provider,
+      autoClose: true
     });
 
     myMap.addControl(searchControl);
