@@ -46,7 +46,8 @@
 
     var searchControl = new GeoSearchControl({
       provider: provider,
-      autoClose: true
+      autoClose: true,
+      showMarker: false
     });
 
     myMap.addControl(searchControl);
