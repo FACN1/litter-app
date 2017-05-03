@@ -1,6 +1,6 @@
 (function(){
 
-  // GET LOCATION
+  // GET USER'S LOCATION
   var locationButton = document.getElementById('getLocationButton');
 
   function getLocation() {
@@ -20,5 +20,19 @@
   };
 
   locationButton.addEventListener('click', getLocation);
+
+  // INSERT SUBMISSION TO DB (SUBMIT HANDLER)
+  var submitButton = document.getElementById('submitReport');
+
+  submitButton.addEventListener('submit', function(event){
+
+    event.preventDefault();
+
+    // var form = document.getElementById()
+    console.log('event.target');
+  })
+
+
+
 
 })();
