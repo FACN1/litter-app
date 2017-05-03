@@ -1,5 +1,6 @@
 .page-header {
   z-index: 3;
+  @include flexbox;
   justify-content: space-between;
   padding: 20px;
 
@@ -23,6 +24,8 @@
   top: 0;
   left: 0;
 
+  @include flexbox;
+
   width: 100%;
   height: $header-height;
   padding: 10px 5px;
@@ -38,6 +41,7 @@
 }
 
 .dropdown-nav-button {
+  @include flexbox;
   flex-grow: 1;
   height: 100%;
   margin: 0 5px;

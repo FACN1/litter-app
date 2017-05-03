@@ -4,6 +4,7 @@
 }
 
 .page-content {
+  @include flexbox;
   min-height: calc(100vh - #{$header-height});
   width: 100%;
   background-color: #f2f2f2;
