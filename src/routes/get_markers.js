@@ -6,7 +6,8 @@ module.exports = {
   path: '/get-markers',
   handler: (request, reply) => {
     dbQueries.getMarkers(connPool, (err, res) => {
-      reply(res.rows);
+      if (err) return console.log(err);
+      return reply(res.rows);
     });
   }
 };

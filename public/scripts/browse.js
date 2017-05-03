@@ -57,18 +57,23 @@
   function addMarkers(myMap) {
     // make XHR request for markers
     IndexModule.makeRequest('/get-markers', 'GET', null, function(err, res) {
-      console.log(res);
+      createMarkers(res);
     });
 
-    // add 3 dummy markers for now
-    // L.marker([32.701509, 35.310147], {id: 34812}).addTo(myMap).on('click', logID);
-    // L.marker([32.693757, 35.299489], {id: 12493}).addTo(myMap).on('click', logID);
-    // L.marker([32.705186, 35.296820], {id: 85434}).addTo(myMap).on('click', logID);
+    // create markers with database data
+    function createMarkers(markers) {
+      markers.map(function(marker) {
+        L.marker(
+          [marker.latitude, marker.longitude],
+          {id: marker.post_id}
+        ).addTo(myMap).on('click', logID);
+      });
+    };
 
     // log their alt text when clicked
     function logID(event) {
       console.log(event.target.options.id);
-    }
+    };
   }
 
   // call functions
