@@ -1,4 +1,4 @@
-(function() {
+var IndexModule = (function() {
   // XHR request function
   var makeRequest = function(url, method, data, callback) {
     var xhr = new XMLHttpRequest();
@@ -30,6 +30,10 @@
     });
   }
 
+  // run these automatically
+  dropdownListener();
+
+  // expose these functions
   return {
     makeRequest: makeRequest
   }
