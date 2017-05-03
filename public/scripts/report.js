@@ -12,7 +12,6 @@
     }
   };
 
-
   function showPosition(position) {
     console.log(
       'Latitude: ' + position.coords.latitude +
@@ -21,7 +20,5 @@
   };
 
   locationButton.addEventListener('click', getLocation);
-
-
 
 })();
