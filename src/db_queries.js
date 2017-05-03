@@ -7,3 +7,5 @@ dbQueries.getMarkers = (connPool, callback) => {
     callback
   );
 };
+
+module.exports = dbQueries;
