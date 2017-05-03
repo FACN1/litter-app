@@ -1,6 +1,6 @@
 /* SIZING */
 
-body, div, header, section, h1, button, label {
+body, div, header, section, h1, select, label, button, input, textarea {
   margin: 0;
   padding: 0;
   border: 0;
@@ -9,7 +9,7 @@ body, div, header, section, h1, button, label {
 
 /* FLEX */
 
-body, div, header, section, a, label {
+body, div, header, section, a, select, .form-button {
   display: flex;
   justify-content: center;
   align-items: center;

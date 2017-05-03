@@ -2,19 +2,82 @@
 {{> header}}
 
 <section class="page-content">
-  <div class="form-wrap">
 
     <form class="report-form" action="/" method="post">
 
-      <input class="form-button image-input" type="file" id="imageFile" accept="image/*" name="image">
+      <!-- image input -->
+      <input class="button form-button image-input" type="file" id="imageFile" accept="image/*" name="image">
 
-      <label class="form-button" for="imageFile">Choose an image</label>
+      <label class="button form-button" id="imageInputLabel" for="imageFile">Choose an image</label>
 
-      <button class="form-button" id="getLocationButton" type="button" name="location">Submit Location</button>
+      <!-- location input -->
+      <button class="button form-button" id="getLocationButton" type="button" name="location">Submit Location</button>
+
+      <!-- description -->
+      <label class="input-label" for="descriptionInput">Description:</label>
+
+      <textarea class="button form-button description-textarea" id="descriptionInput" placeholder="Maximum 200 characters" name="description" rows="8" cols="80" maxlength="200"></textarea>
+
+      <!-- size select -->
+      <label class="input-label" for="sizeSelect">The waste fits in a:</label>
+
+      <select class="button form-button" id="sizeSelect" name="">
+        <option value="binbag">Binbag</option>
+        <option value="wheelbarrow">Wheelbarrow</option>
+        <option value="car">Car</option>
+        <option value="small-van">Small Van</option>
+        <option value="large-van">Large Van</option>
+      </select>
+
+      <!-- type-select  -->
+      <label class="input-label" for="type">Select any applicable tags:</label>
+
+      <fieldset class="type-wrap">
+
+        <div class="type-row">
+
+          <div class="type-col">
+
+            <input class="type-checkbox" id="recycleableCheck" type="checkbox" name="type" value="recyclable"> Recyclable
+
+          </div>
+
+          <div class="type-col">
+
+            <input class="type-checkbox" id="electronicCheck" type="checkbox" name="type" value="electronic"> Electronic
+
+          </div>
+
+        </div>
+
+        <div class="type-row">
+
+          <div class="type-col">
+
+            <input class="type-checkbox" id="dumpCheck" type="checkbox" name="type" value="dump"> Dump
+          </div>
+
+          <div class="type-col">
+
+            <input class="type-checkbox" id="sharpsCheck" type="checkbox" name="type" value="sharps"> Sharp Objects
+          </div>
+
+        </div>
+
+        <div class="type-row">
+
+          <div class="type-col">
+            <input class="type-checkbox" id="hazchemCheck" type="checkbox" name="type" value="hazchem"> Hazardous Chemicals
+          </div>
+
+        </div>
+
+      </fieldset>
+
+      <input class="button submit-button" id="submitReport" type="submit" value="Submit">
 
     </form>
 
-  </div>
 </section>
 
-<script type="text/javascript" src="./script/report.js"></script>
+<script type="text/javascript" src="./scripts/report.js"></script>
