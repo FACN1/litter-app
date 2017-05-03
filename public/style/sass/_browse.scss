@@ -5,3 +5,8 @@
   color: $text-off-black;
   z-index: 1;
 }
+
+// style leaflet geosearch search box
+.my-map form {
+  width: 85vw;
+}
