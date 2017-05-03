@@ -1,7 +1,18 @@
 .my-map {
+  @include flexbox;
   height: calc(100vh - #{$header-height}); // 100% doesn't work :(
   width: 100%;
   font: 20px $default;
   color: $text-off-black;
   z-index: 1;
+}
+
+// style leaflet geosearch search box
+.my-map form {
+  width: calc(100vw - 55px);
+}
+
+// hide leaflet attribution box
+.leaflet-control-attribution {
+  display: none;
 }

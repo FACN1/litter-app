@@ -12,11 +12,13 @@
 }
 
 .index-button-wrap {
+  @include flexbox;
   flex-direction: column;
   margin-top: 20px;
 }
 
 .index-button {
+  @include flexbox;
   height: 50px;
   width: 60vw;
   margin: 10px;
