@@ -1,0 +1,7 @@
+.my-map {
+  height: calc(100vh - #{$header-height}); // 100% doesn't work :(
+  width: 100%;
+  font: 20px $default;
+  color: $text-off-black;
+  z-index: 1;
+}
