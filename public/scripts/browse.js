@@ -18,10 +18,14 @@
 
   // instantiate map
   function createMap(token, lat, lon) {
+    // create new map
     var myMap = L.map('myMap').setView([lat, lon], 13);
 
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
-    {
+    // move zoom buttons to bottom left of screen
+    myMap.zoomControl.setPosition('bottomleft');
+
+    // add tiles from mapbox
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: null,
       maxZoom: 18,
       id: 'mapbox.streets',
