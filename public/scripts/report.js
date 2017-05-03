@@ -1,38 +1,52 @@
 (function(){
 
   // GET USER'S LOCATION
-  var locationButton = document.getElementById('getLocationButton');
+  function getLocation(){
 
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      // non-supprt error handling
-      console.log('Geolocation is not supported by this browser.');
-    }
-  };
+    var locationButton = document.getElementById('getLocationButton');
 
-  function showPosition(position) {
-    console.log(
-      'Latitude: ' + position.coords.latitude +
-      'Longitude: ' + position.coords.longitude
-    );
-  };
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        // non-supprt error handling
+        console.log('Geolocation is not supported by this browser.');
+      }
+    };
 
-  locationButton.addEventListener('click', getLocation);
+    function showPosition(position) {
+      console.log(
+        'Latitude: ' + position.coords.latitude +
+        'Longitude: ' + position.coords.longitude
+      );
+    };
+
+    locationButton.addEventListener('click', getLocation);
+
+  }
 
   // INSERT SUBMISSION TO DB (SUBMIT HANDLER)
-  var submitButton = document.getElementById('submitReport');
+  function addSubmitListener(){
 
-  submitButton.addEventListener('submit', function(event){
+    var reportForm = document.getElementById('reportForm');
 
-    event.preventDefault();
+    reportForm.addEventListener('submit', submitHandler)
 
-    // var form = document.getElementById()
-    console.log('event.target');
-  })
+    function submitHandler(event){
+      event.preventDefault();
+
+      extractFormData(event);
+    }
+
+  }
+
+  function extractFormData(event){
+    console.dir(event.target.elements);
+
+  }
 
 
-
+  getLocation();
+  addSubmitListener();
 
 })();
