@@ -55,10 +55,15 @@
 
   // add markers to map
   function addMarkers(myMap) {
+    // make XHR request for markers
+    IndexModule.makeRequest('/get-markers', 'GET', null, function(err, res) {
+      console.log(res);
+    });
+
     // add 3 dummy markers for now
-    L.marker([32.701509, 35.310147], {id: 34812}).addTo(myMap).on('click', logID);
-    L.marker([32.693757, 35.299489], {id: 12493}).addTo(myMap).on('click', logID);
-    L.marker([32.705186, 35.296820], {id: 85434}).addTo(myMap).on('click', logID);
+    // L.marker([32.701509, 35.310147], {id: 34812}).addTo(myMap).on('click', logID);
+    // L.marker([32.693757, 35.299489], {id: 12493}).addTo(myMap).on('click', logID);
+    // L.marker([32.705186, 35.296820], {id: 85434}).addTo(myMap).on('click', logID);
 
     // log their alt text when clicked
     function logID(event) {
