@@ -66,6 +66,8 @@
 
     console.dir(reportData);
 
+    IndexModule.makeRequest();
+
   }
 
 
