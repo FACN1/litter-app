@@ -56,12 +56,15 @@
     reportData.location = form[1].value;
     reportData.description = form[2].value;
     reportData.size = form[3].value;
-    reportData.description = form[2].value;
-    reportData.description = form[2].value;
-    reportData.description = form[2].value;
-    reportData.description = form[2].value;
 
-    console.dir(reportData.size);
+    reportData.type = {};
+    reportData.type[form[5].value] = form[5].checked;
+    reportData.type[form[6].value] = form[6].checked;
+    reportData.type[form[7].value] = form[7].checked;
+    reportData.type[form[8].value] = form[8].checked;
+    reportData.type[form[9].value] = form[9].checked;
+
+    console.dir(reportData);
 
   }
 
