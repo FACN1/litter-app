@@ -33,13 +33,13 @@
   // add markers to map
   function addMarkers(myMap) {
     // add 3 dummy markers for now
-    L.marker([32.701509, 35.310147], {alt: 34812}).addTo(myMap).on('click', logID);
-    L.marker([32.693757, 35.299489], {alt: 12493}).addTo(myMap).on('click', logID);
-    L.marker([32.705186, 35.296820], {alt: 85434}).addTo(myMap).on('click', logID);
+    L.marker([32.701509, 35.310147], {id: 34812}).addTo(myMap).on('click', logID);
+    L.marker([32.693757, 35.299489], {id: 12493}).addTo(myMap).on('click', logID);
+    L.marker([32.705186, 35.296820], {id: 85434}).addTo(myMap).on('click', logID);
 
     // log their alt text when clicked
     function logID(event) {
-      console.log(event.target.options.alt);
+      console.log(event.target.options.id);
     }
   }
 })();
