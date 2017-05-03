@@ -29,19 +29,19 @@ CREATE TABLE markers (
 
 INSERT INTO posts (location, image_url, size, description) VALUES
 (
-  '32.728394,35.277644',
+  '32.701509,35.310147',
   'https://dl.dropboxusercontent.com/u/5038771/tip1.png',
   'Large Van',
   'Mixed household waste spread out on the side of the road including one washing machine and some broken wooden pallets'
 ),
 (
-  '32.689187,35.300687',
+  '32.693757,35.299489',
   'https://dl.dropboxusercontent.com/u/5038771/12litter.jpg',
   'Small Van',
   'Old clothes and other items left on the side of the road at junction 72'
 ),
 (
-  '32.701639,35.297084',
+  '51.528558,-0.241701',
   'https://dl.dropboxusercontent.com/u/5038771/C8Dfd4OX0AEvks7.jpg',
   'Car',
   'Does anybody own this cow? He''s eating all my rubbish'
