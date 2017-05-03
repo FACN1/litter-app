@@ -4,9 +4,12 @@
   // set up map config - get mapbox token and location
   var mapBoxToken = mapDiv.dataset.token;
 
+  // if no navigator on user's browser, default to London UK
   if (!navigator.geolocation) {
-    setUpMap(51.5285582, -0.2417011); // default to London UK
-  } else {
+    setUpMap(51.5285582, -0.2417011);
+  }
+  // else if present, get user's position from the browser
+  else {
     navigator.geolocation.getCurrentPosition(function(position) {
       setUpMap(position.coords.latitude, position.coords.longitude);
     });
