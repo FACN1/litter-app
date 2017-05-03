@@ -6,3 +6,13 @@
   color: $text-off-black;
   z-index: 1;
 }
+
+// style leaflet geosearch search box
+.my-map form {
+  width: calc(100vw - 55px);
+}
+
+// hide leaflet attribution box
+.leaflet-control-attribution {
+  display: none;
+}
