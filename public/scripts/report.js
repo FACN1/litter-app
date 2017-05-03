@@ -66,7 +66,10 @@
 
     console.dir(reportData);
 
-    IndexModule.makeRequest();
+    IndexModule.makeRequest('/post-report', 'POST', reportData, function(err, res){
+      if (err) console.log(err);
+      // front-end post request callback
+    });
 
   }
 

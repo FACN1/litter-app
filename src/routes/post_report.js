@@ -5,9 +5,10 @@ module.exports = {
   method: 'POST',
   path: '/post-report',
   handler: (request, reply) => {
-    dbQueries.getMarkers(connPool, (err, res) => {
+    dbQueries.getMarkers(connPool, (err) => {
       if (err) return console.log(err);
-      return reply(res.rows);
+      // redirect user to new post view
+      return reply();
     });
   }
 };
