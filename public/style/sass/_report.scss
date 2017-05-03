@@ -16,6 +16,7 @@
 }
 
 .button, select, .type-wrap {
+  @include flexbox;
   outline: none;
   width: 100%;
   font: 15px $default;
@@ -64,6 +65,7 @@
 }
 
 .type-row {
+  @include flexbox;
   margin: 8px;
 }
 

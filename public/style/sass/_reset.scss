@@ -7,17 +7,10 @@ body, div, header, section, h1, select, label, button, input, textarea {
   box-sizing: border-box;
 }
 
-/* FLEX */
-
-body, div, header, section, a, select, .form-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 /* ELEMENT SPECIFIC */
 
-body, section {
+body {
+  @include flexbox;
   flex-direction: column;
 }
 
