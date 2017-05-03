@@ -9,7 +9,7 @@
 
 // style leaflet geosearch search box
 .my-map form {
-  width: 85vw;
+  width: calc(100vw - 55px);
 }
 
 // hide leaflet attribution box
