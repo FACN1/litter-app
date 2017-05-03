@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS posts, tags, posts_tags cascade;
+DROP TABLE IF EXISTS posts, tags, posts_tags, markers cascade;
 
 CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
@@ -19,6 +19,12 @@ CREATE TABLE tags (
 CREATE TABLE posts_tags (
   post_id INTEGER NOT NULL REFERENCES posts (id),
   tag_id INTEGER NOT NULL REFERENCES tags (id)
+);
+
+CREATE TABLE markers (
+  post_id INTEGER NOT NULL UNIQUE REFERENCES posts(id),
+  latitude DECIMAL NOT NULL,
+  longitude DECIMAL NOT NULL
 );
 
 INSERT INTO posts (location, image_url, size, description) VALUES
