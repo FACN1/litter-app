@@ -3,7 +3,6 @@
 $waitrose-green: #8BC74F;
 $text-off-black: #444;
 
-
 /* SIZING */
 
 $header-height: 70px;
@@ -11,3 +10,11 @@ $header-height: 70px;
 /* FONTS */
 
 $default: Helvetica;
+
+/* MIXINS */
+
+@mixin flexbox() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
