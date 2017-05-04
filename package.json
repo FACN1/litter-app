@@ -4,6 +4,7 @@
   "description": "MVP - An app for facilitating the planning and organisation of fly-tipping cleanups",
   "main": "server.js",
   "dependencies": {
+    "aws-sdk": "^2.48.0",
     "env2": "^2.1.1",
     "handlebars": "^4.0.7",
     "hapi": "^16.1.1",
@@ -37,5 +38,8 @@
   "bugs": {
     "url": "https://github.com/FACN1/litter-app/issues"
   },
-  "homepage": "https://github.com/FACN1/litter-app#readme"
+  "homepage": "https://github.com/FACN1/litter-app#readme",
+  "engines": {
+    "node": "v7.4.0"
+  }
 }

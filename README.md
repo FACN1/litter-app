@@ -87,3 +87,6 @@ Check out the [prototype](https://github.com/JWLD/litter-locator), or view it on
 | ---     | ---     | ---         |
 | post_id | INTEGER | NOT NULL REFERENCES posts (id)  |
 | tag_id  | INTEGER | NOT NULL REFERENCES tags (id)   |
+
+### References
+- Uploading images to S3 [tutorial](https://devcenter.heroku.com/articles/s3-upload-node)
