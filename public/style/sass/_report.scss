@@ -53,8 +53,16 @@
   display: none;
 }
 
+.getting-location {
+  color: orange;
+}
+
 .using-location {
   color: $waitrose-green;
+}
+
+.error-getting-location {
+  color: red;
 }
 
 .type-checkbox {

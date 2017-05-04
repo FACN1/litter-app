@@ -1,53 +1,68 @@
 (function(){
 
-  // GET USER'S LOCATION
-  function getLocation(){
+  function getLocationListener(){
 
     var locationButton = document.getElementById('getLocationButton');
+    locationButton.addEventListener('click', getLocation);
 
+    // GET USER'S LOCATION
     function getLocation() {
+
+      locationButton.innerHTML = 'Getting your location...';
+      locationButton.classList.add('getting-location');
+
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(storePosition);
+
+        navigator.geolocation.getCurrentPosition(storePosition, function(err){
+
+          console.log('error :',err);
+
+          locationButton.innerHTML = 'Error Getting Location';
+
+          locationButton.classList.remove('getting-location');
+          locationButton.classList.add('error-getting-location');
+
+        });
+
       } else {
         // non-supprt error handling
         console.log('Geolocation is not supported by this browser.');
       }
     };
+
     // store user's location in button attribute
     function storePosition(position) {
-      var getLocationButton = document.getElementById('getLocationButton');
 
-      var coords = {
-        'latitude': position.coords.latitude,
-        'longitude': position.coords.longitude
-      };
+      var coords = position.coords.latitude+","+position.coords.longitude;
 
-      getLocationButton.setAttribute("value", JSON.stringify(coords));
+      locationButton.setAttribute("value", JSON.stringify(coords));
 
-      getLocationButton.innerHTML = 'Using current location';
+      locationButton.innerHTML = 'Using current location';
 
-      getLocationButton.className += " using-location";
+      locationButton.classList.remove('getting-location');
+
+      locationButton.classList.add('using-location');
 
     };
 
-    locationButton.addEventListener('click', getLocation);
-
   }
 
-  // INSERT SUBMISSION TO DB (SUBMIT HANDLER)
-  function addSubmitListener(){
 
-    var reportForm = document.getElementById('reportForm');
+    // INSERT SUBMISSION TO DB (SUBMIT HANDLER)
+    function submitFormListener(){
 
-    reportForm.addEventListener('submit', submitHandler)
+      var reportForm = document.getElementById('reportForm');
 
-    function submitHandler(event){
-      event.preventDefault();
+      reportForm.addEventListener('submit', submitHandler)
 
-      extractFormData(event);
+      function submitHandler(event){
+        event.preventDefault();
+
+        extractFormData(event);
+
+      }
+
     }
-
-  }
 
   function extractFormData(event){
 
@@ -86,7 +101,7 @@
 
   }
 
-  getLocation();
-  addSubmitListener();
+  getLocationListener();
+  submitFormListener();
 
 })();
