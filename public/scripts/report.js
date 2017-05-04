@@ -35,7 +35,7 @@
 
       var coords = position.coords.latitude+","+position.coords.longitude;
 
-      locationButton.setAttribute("value", JSON.stringify(coords));
+      locationButton.setAttribute("value", coords);
 
       locationButton.innerHTML = 'Using current location';
 
@@ -46,7 +46,6 @@
     };
 
   }
-
 
     // INSERT SUBMISSION TO DB (SUBMIT HANDLER)
     function submitFormListener(){
@@ -72,30 +71,31 @@
     reportData.description = form[2].value;
     reportData.size = form[3].value;
 
-    reportData.type = [];
+    reportData.type_tags = [];
 
     if (form[5].checked === true) {
-      reportData.type.push([form[5].value])
+      reportData.type_tags.push(Number(form[5].value))
     };
     if (form[6].checked === true) {
-      reportData.type.push([form[6].value])
+      reportData.type_tags.push(Number(form[6].value))
     };
     if (form[7].checked === true) {
-      reportData.type.push([form[7].value])
+      reportData.type_tags.push(Number(form[7].value))
     };
     if (form[8].checked === true) {
-      reportData.type.push([form[8].value])
+      reportData.type_tags.push(Number(form[8].value))
     };
     if (form[9].checked === true) {
-      reportData.type.push([form[9].value])
+      reportData.type_tags.push(Number(form[9].value))
     };
 
-    // console.dir(reportData);
+    // console.dir(reportData.type_tags);
 
     // Validate and Format input.
 
     IndexModule.makeRequest('/post-report', 'POST', JSON.stringify(reportData), function(err, res){
       if (err) console.log(err);
+
       // front-end post request callback
     });
 

@@ -55,8 +55,8 @@ INSERT INTO tags (id, description) VALUES
 (5, 'Hazardous Chemicals');
 
 INSERT INTO posts_tags (post_id, tag_id) VALUES
-(1, 2),
 (1, 1),
+(1, 2),
 (1, 3),
 (2, 2),
 (3, 2);

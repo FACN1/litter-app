@@ -4,7 +4,7 @@ var IndexModule = (function() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        callback(null, JSON.parse(xhr.responseText));
+        callback(null, xhr.responseText);
       }
     }
     xhr.open(method, url);
