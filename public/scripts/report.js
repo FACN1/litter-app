@@ -57,22 +57,34 @@
     reportData.description = form[2].value;
     reportData.size = form[3].value;
 
-    reportData.type = {};
-    reportData.type[form[5].value] = form[5].checked;
-    reportData.type[form[6].value] = form[6].checked;
-    reportData.type[form[7].value] = form[7].checked;
-    reportData.type[form[8].value] = form[8].checked;
-    reportData.type[form[9].value] = form[9].checked;
+    reportData.type = [];
 
-    console.dir(reportData);
+    if (form[5].checked === true) {
+      reportData.type.push([form[5].value])
+    };
+    if (form[6].checked === true) {
+      reportData.type.push([form[6].value])
+    };
+    if (form[7].checked === true) {
+      reportData.type.push([form[7].value])
+    };
+    if (form[8].checked === true) {
+      reportData.type.push([form[8].value])
+    };
+    if (form[9].checked === true) {
+      reportData.type.push([form[9].value])
+    };
 
-    IndexModule.makeRequest('/post-report', 'POST', reportData, function(err, res){
+    // console.dir(reportData);
+
+    // Validate and Format input.
+
+    IndexModule.makeRequest('/post-report', 'POST', JSON.stringify(reportData), function(err, res){
       if (err) console.log(err);
       // front-end post request callback
     });
 
   }
-
 
   getLocation();
   addSubmitListener();

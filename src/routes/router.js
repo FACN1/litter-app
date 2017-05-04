@@ -5,5 +5,6 @@ module.exports = [
   require('./static_files.js'),
   require('./home.js'),
   require('./browse.js'),
-  require('./get_markers.js')
+  require('./get_markers.js'),
+  require('./post_report.js')
 ];
