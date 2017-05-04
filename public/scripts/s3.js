@@ -24,9 +24,10 @@
     indexModule.makeRequest(signedRequest, 'PUT', file, function(err, response) {
       if (err) return console.log(err);
 
+      // adjust form view
       document.getElementById('previewImage').src = dataUrl;
       document.getElementById('previewImage').classList.remove('hidden');
       document.getElementById('avatarUrl').value = dataUrl;
-    })
+    });
   };
 })();
