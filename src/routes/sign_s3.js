@@ -4,7 +4,7 @@ module.exports = {
   method: 'GET',
   path: '/sign-s3',
   handler: (req, reply) => {
-    // new aws.S3 automatically loads the AWS vars in config.env
+    // set up new s3 with parameters (this automatically loads in env vars)
     const s3 = new Aws.S3({
       signatureVersion: 'v4',
       region: 'eu-west-2'
@@ -20,6 +20,7 @@ module.exports = {
       ACL: 'public-read'
     };
 
+    // get signed url from s3 and return it to the front end
     s3.getSignedUrl('putObject', s3Params, (err, signedUrl) => {
       if (err) return reply(err);
 
