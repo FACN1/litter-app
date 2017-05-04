@@ -6,9 +6,9 @@
     <form class="report-form" action="/" method="post">
 
       <!-- image input -->
-      <input class="button form-button image-input" type="file" id="imageFile" accept="image/*" name="image">
-
-      <label class="button form-button" id="imageInputLabel" for="imageFile">Choose an image</label>
+      <label class="button form-button" id="imageInputLabel" for="imageFile">Upload Image</label>
+      <img class="button form-button image hidden" id="previewImage" />
+      <input class="button form-button image-input" type="file" id="imageFile" accept="image/*" name="image" value="" />
 
       <!-- location input -->
       <button class="button form-button" id="getLocationButton" type="button" name="location">Submit Location</button>
@@ -81,3 +81,4 @@
 </section>
 
 <script type="text/javascript" src="./scripts/report.js"></script>
+<script type="text/javascript" src="./scripts/s3.js"></script>
