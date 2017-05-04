@@ -34,7 +34,7 @@
 
     addSearchBar(myMap);
 
-    addMarkers(myMap);
+    // addMarkers(myMap);
   }
 
   // add Leaflet Geosearch plugin to map
