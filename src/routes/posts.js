@@ -10,13 +10,14 @@ module.exports = {
       if (err) return console.log(err);
 
       const postData = res.rows[0];
-      return console.log(postData);
+      console.log(postData);
+
+      const context = {
+        title: 'Posts Page',
+        imgUrl: postData.image_url
+      };
+
+      return reply.view('posts', context);
     });
-
-    const context = {
-      title: 'Posts Page'
-    };
-
-    return reply.view('posts', context);
   }
 };

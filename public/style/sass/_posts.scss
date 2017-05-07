@@ -1,0 +1,20 @@
+.post-wrap {
+  @include flexbox;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - #{$header-height});
+  padding: 20px;
+}
+
+.post-box {
+  width: 100%;
+  padding: 15px;
+  border-radius: 2px;
+  box-shadow: 0 0 5px 1px #ccc;
+  background-color: white;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
