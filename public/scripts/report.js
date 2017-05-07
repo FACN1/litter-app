@@ -1,64 +1,59 @@
-(function(){
-
+(function() {
+  // add listener to get location button
   var locationButton = document.getElementById('getLocationButton');
-
   locationButton.addEventListener('click', getLocation);
 
-  // GET USER'S LOCATION
+  // get user's location
   function getLocation() {
     locationButton.innerHTML = 'Getting your location...';
     locationButton.classList.add('getting-location');
 
     if (navigator.geolocation) {
-
-      navigator.geolocation.getCurrentPosition(storePosition, function(err){
-
-        console.log('error :',err);
+      navigator.geolocation.getCurrentPosition(storePosition, function(err) {
+        console.log('error:', err);
 
         locationButton.innerHTML = 'Error Getting Location';
-
         locationButton.classList.remove('getting-location');
         locationButton.classList.add('error-getting-location');
-
       });
-
     } else {
-      // non-supprt error handling
+      // non-support error handling
       console.log('Geolocation is not supported by this browser.');
     }
   };
 
   // store user's location in button attribute
   function storePosition(position) {
-    var coords = position.coords.latitude+','+position.coords.longitude;
+    var coords = position.coords.latitude + ',' + position.coords.longitude;
 
     locationButton.setAttribute('value', coords);
-
     locationButton.innerHTML = 'Using current location';
-
     locationButton.classList.remove('getting-location');
-
     locationButton.classList.add('using-location');
   };
 
-  // INSERT SUBMISSION TO DB (SUBMIT HANDLER)
+  // add listener to report form
   var reportForm = document.getElementById('reportForm');
-
-  reportForm.addEventListener('submit', submitHandler)
+  reportForm.addEventListener('submit', submitHandler);
 
   function submitHandler(event){
     event.preventDefault();
-    // validate form data
+    // validate form data here
     extractFormData(event);
   }
 
-  function extractFormData(event){
+  // create report data object and post to server
+  function extractFormData(event) {
     var form = event.target.elements;
     var reportData = {};
+
+    // add main info to reportData
+    reportData.imageUrl = form.avatarUrl.value;
     reportData.location = form.location.value;
     reportData.description = form.description.value;
     reportData.size = form.size.value;
 
+    // add tags to reportData
     var typesList = Array.from(form.type.elements);
 
     reportData.type_tags = typesList
@@ -69,17 +64,9 @@
         return typeBox.value;
       });
 
-    // document.getElementById('avatarUrl').value
-    if (form.avatarUrl.value !== '') {
-      reportData.image = form.avatarUrl.value;
-    };
-    // Validate input.
-
-    indexModule.makeRequest('/post-report', 'POST', JSON.stringify(reportData), function(err, res){
+    // post reportData to server
+    indexModule.makeRequest('/post-report', 'POST', JSON.stringify(reportData), function(err, res) {
       if (err) console.log(err);
-
-      // front-end post request callback
     });
   }
-
 })();
