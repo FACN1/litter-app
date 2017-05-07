@@ -14,11 +14,15 @@ module.exports = {
 
       postData.post_id = postId;
 
-      return dbQueries.postReportTags(connPool, postData, (postErr) => {
-        if (postErr) return console.log(postErr);
-        // redirect user to new post view
-        return reply.redirect(`/posts?id=${postId}`);
-      });
+      if (postData.type_tags.length > 0) {
+        return dbQueries.postReportTags(connPool, postData, (postErr) => {
+          if (postErr) return console.log(postErr);
+          // redirect user to new post view
+          return reply.redirect(`/posts?id=${postId}`);
+        });
+      }
+
+      return reply.redirect(`/posts?id=${postId}`);
     });
   }
 };
