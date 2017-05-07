@@ -21,7 +21,7 @@
       <!-- size select -->
       <label class="input-label" for="sizeSelect">The waste fits in a...</label>
 
-      <select class="button form-button" id="sizeSelect" name="">
+      <select class="button form-button" id="sizeSelect" name="size">
         <option value="">Choose a size</option>
         <option value="Binbag">Binbag</option>
         <option value="Wheelbarrow">Wheelbarrow</option>
@@ -33,19 +33,19 @@
       <!-- type-select  -->
       <label class="input-label" for="type">Select any applicable tags</label>
 
-      <fieldset class="type-wrap">
+      <fieldset class="type-wrap" name="type">
 
         <div class="type-row">
 
           <div class="type-col">
 
-            <input class="type-checkbox" id="recycleableCheck" type="checkbox" name="type" value=1> Recyclable
+            <input class="type-checkbox" id="recycleableCheck" type="checkbox" value=1> Recyclable
 
           </div>
 
           <div class="type-col">
 
-            <input class="type-checkbox" id="electronicCheck" type="checkbox" name="type" value="2"> Electronic
+            <input class="type-checkbox" id="electronicCheck" type="checkbox" value="2"> Electronic
 
           </div>
 
@@ -55,12 +55,12 @@
 
           <div class="type-col">
 
-            <input class="type-checkbox" id="dumpCheck" type="checkbox" name="type" value="3"> Dump
+            <input class="type-checkbox" id="dumpCheck" type="checkbox" value="3"> Dump
           </div>
 
           <div class="type-col">
 
-            <input class="type-checkbox" id="sharpsCheck" type="checkbox" name="type" value="4"> Sharp Objects
+            <input class="type-checkbox" id="sharpsCheck" type="checkbox" value="4"> Sharp Objects
           </div>
 
         </div>
@@ -68,7 +68,7 @@
         <div class="type-row">
 
           <div class="type-col">
-            <input class="type-checkbox" id="hazchemCheck" type="checkbox" name="type" value="5"> Hazardous Chemicals
+            <input class="type-checkbox" id="hazchemCheck" type="checkbox" value="5"> Hazardous Chemicals
           </div>
 
         </div>

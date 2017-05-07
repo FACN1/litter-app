@@ -1,4 +1,4 @@
-var IndexModule = (function() {
+var indexModule = (function() {
   // XHR request function
   var makeRequest = function(url, method, data, callback) {
     var xhr = new XMLHttpRequest();

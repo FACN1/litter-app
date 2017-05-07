@@ -1,95 +1,73 @@
 (function(){
 
-  function getLocationListener(){
+  var locationButton = document.getElementById('getLocationButton');
 
-    var locationButton = document.getElementById('getLocationButton');
-    locationButton.addEventListener('click', getLocation);
+  locationButton.addEventListener('click', getLocation);
 
-    // GET USER'S LOCATION
-    function getLocation() {
+  // GET USER'S LOCATION
+  function getLocation() {
+    locationButton.innerHTML = 'Getting your location...';
+    locationButton.classList.add('getting-location');
 
-      locationButton.innerHTML = 'Getting your location...';
-      locationButton.classList.add('getting-location');
+    if (navigator.geolocation) {
 
-      if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(storePosition, function(err){
 
-        navigator.geolocation.getCurrentPosition(storePosition, function(err){
+        console.log('error :',err);
 
-          console.log('error :',err);
+        locationButton.innerHTML = 'Error Getting Location';
 
-          locationButton.innerHTML = 'Error Getting Location';
+        locationButton.classList.remove('getting-location');
+        locationButton.classList.add('error-getting-location');
 
-          locationButton.classList.remove('getting-location');
-          locationButton.classList.add('error-getting-location');
+      });
 
-        });
+    } else {
+      // non-supprt error handling
+      console.log('Geolocation is not supported by this browser.');
+    }
+  };
 
-      } else {
-        // non-supprt error handling
-        console.log('Geolocation is not supported by this browser.');
-      }
-    };
+  // store user's location in button attribute
+  function storePosition(position) {
+    var coords = position.coords.latitude+','+position.coords.longitude;
 
-    // store user's location in button attribute
-    function storePosition(position) {
+    locationButton.setAttribute('value', coords);
 
-      var coords = position.coords.latitude+","+position.coords.longitude;
+    locationButton.innerHTML = 'Using current location';
 
-      locationButton.setAttribute("value", coords);
+    locationButton.classList.remove('getting-location');
 
-      locationButton.innerHTML = 'Using current location';
+    locationButton.classList.add('using-location');
+  };
 
-      locationButton.classList.remove('getting-location');
+  // INSERT SUBMISSION TO DB (SUBMIT HANDLER)
+  var reportForm = document.getElementById('reportForm');
 
-      locationButton.classList.add('using-location');
+  reportForm.addEventListener('submit', submitHandler)
 
-    };
+  function submitHandler(event){
+    event.preventDefault();
 
+    extractFormData(event);
   }
 
-    // INSERT SUBMISSION TO DB (SUBMIT HANDLER)
-    function submitFormListener(){
-
-      var reportForm = document.getElementById('reportForm');
-
-      reportForm.addEventListener('submit', submitHandler)
-
-      function submitHandler(event){
-        event.preventDefault();
-
-        extractFormData(event);
-
-      }
-
-    }
-
   function extractFormData(event){
-
     var form = event.target.elements;
     var reportData = {};
-    reportData.location = form[1].value;
-    reportData.description = form[2].value;
-    reportData.size = form[3].value;
+    reportData.location = form.location.value;
+    reportData.description = form.description.value;
+    reportData.size = form.size.value;
 
-    reportData.type_tags = [];
+    var typesList = Array.from(form.type.elements);
 
-    if (form[5].checked === true) {
-      reportData.type_tags.push(Number(form[5].value))
-    };
-    if (form[6].checked === true) {
-      reportData.type_tags.push(Number(form[6].value))
-    };
-    if (form[7].checked === true) {
-      reportData.type_tags.push(Number(form[7].value))
-    };
-    if (form[8].checked === true) {
-      reportData.type_tags.push(Number(form[8].value))
-    };
-    if (form[9].checked === true) {
-      reportData.type_tags.push(Number(form[9].value))
-    };
-
-    // console.dir(reportData.type_tags);
+    reportData.type_tags = typesList
+      .filter(function(typeBox){
+        if(typeBox.checked) return typeBox.value;
+      })
+      .map(function(typeBox){
+        return typeBox.value;
+      });
 
     // Validate and Format input.
 
@@ -98,10 +76,6 @@
 
       // front-end post request callback
     });
-
   }
-
-  getLocationListener();
-  submitFormListener();
 
 })();

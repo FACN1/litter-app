@@ -7,9 +7,6 @@ module.exports = {
   handler: (request, reply) => {
     const postData = JSON.parse(request.payload);
 
-    console.log(postData);
-
-
     dbQueries.postReportDetails(connPool, postData, (err, result) => {
       if (err) return console.log(err);
 
@@ -17,13 +14,12 @@ module.exports = {
 
       postData.post_id = postId;
 
-      dbQueries.postReportTags(connPool, postData, (postErr, res) => {
+      return dbQueries.postReportTags(connPool, postData, (postErr) => {
         if (postErr) return console.log(postErr);
-        return console.log(res);
+        // redirect user to new post view
+        // console.log('/posts?id=', postId);
+        return reply.redirect(`/posts?id=${postId}`);
       });
-
-      // redirect user to new post view
-      return reply(/*'/posts?post=',post_id*/);
     });
   }
 };
