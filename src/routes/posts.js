@@ -14,7 +14,28 @@ module.exports = {
         post: res.rows[0]
       };
 
-      return reply.view('posts', context);
+      // request the tags connected to this post
+      return dbQueries.getTags(connPool, request.query.id, (tagsErr, tagsRes) => {
+        if (tagsErr) return console.log(tagsErr);
+
+        // if there are any tags, request their relative names from the DB
+        if (tagsRes.rows.length > 0) {
+          // reduce to array of tag ids
+          const tagIds = tagsRes.rows.map(tag => tag.tag_id);
+
+          // request tag names using tag ids
+          return dbQueries.getTagNames(connPool, tagIds, (nameErr, nameRes) => {
+            if (nameErr) return console.log(nameErr);
+
+            // reduce to array of tag names and add to view context
+            context.post.tagNames = nameRes.rows.map(name => name.description);
+            return reply.view('posts', context);
+          });
+        }
+
+        // return here if no tags
+        return reply.view('posts', context);
+      });
     });
   }
 };

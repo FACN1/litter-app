@@ -15,6 +15,31 @@ dbQueries.getPostData = (connPool, id, callback) => {
   );
 };
 
+dbQueries.getTags = (connPool, id, callback) => {
+  connPool.query(
+    'SELECT tag_id FROM posts_tags WHERE post_id = $1',
+    [id],
+    callback
+  );
+};
+
+dbQueries.getTagNames = (connPool, tagIds, callback) => {
+  let queryString = 'SELECT description FROM tags WHERE ';
+  const dataArray = [];
+
+  tagIds.map((tag, index, array) => {
+    queryString += `id = $${index + 1}`;
+    if (index !== array.length - 1) queryString += ' OR ';
+    return dataArray.push(tag);
+  });
+
+  connPool.query(
+    queryString,
+    dataArray,
+    callback
+  );
+};
+
 dbQueries.postReportDetails = (connPool, data, callback) => {
   connPool.query(
     'INSERT INTO posts (image_url, location, description, size) VALUES ($1, $2, $3, $4) RETURNING id AS post_id',
