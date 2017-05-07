@@ -1,7 +1,8 @@
 (function() {
   // listen for image upload to browser
-  document.getElementById('imageFile').addEventListener('change', function() {
-    var file = document.getElementById('imageFile').files[0];
+  var imageInput = document.getElementById('imageFile');
+  imageInput.addEventListener('change', function() {
+    var file = imageInput.files[0];
     getSignedRequest(file);
   });
 
