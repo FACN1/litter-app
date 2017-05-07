@@ -9,12 +9,9 @@ module.exports = {
     dbQueries.getPostData(connPool, request.query.id, (err, res) => {
       if (err) return console.log(err);
 
-      const postData = res.rows[0];
-      console.log(postData);
-
       const context = {
         title: 'Posts Page',
-        post: postData
+        post: res.rows[0]
       };
 
       return reply.view('posts', context);
