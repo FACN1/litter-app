@@ -56,8 +56,8 @@
   // add markers to map
   function addMarkers(myMap) {
     // make XHR request for markers
-    IndexModule.makeRequest('/get-markers', 'GET', null, function(err, res) {
-      createMarkers(res);
+    indexModule.makeRequest('/get-markers', 'GET', null, function(err, res) {
+      createMarkers(JSON.parse(res));
     });
 
     // create markers with database data

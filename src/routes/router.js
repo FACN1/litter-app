@@ -6,5 +6,6 @@ module.exports = [
   require('./home.js'),
   require('./browse.js'),
   require('./get_markers.js'),
-  require('./post_report.js')
+  require('./post_report.js'),
+  require('./sign_s3.js')
 ];

@@ -9,7 +9,7 @@ var indexModule = (function() {
     }
     xhr.open(method, url);
 
-    if (method === 'POST') {
+    if (method === 'POST' || method === 'PUT') {
       xhr.send(data);
     } else {
       xhr.send();
