@@ -66,13 +66,13 @@
         L.marker(
           [marker.latitude, marker.longitude],
           {id: marker.post_id}
-        ).addTo(myMap).on('click', logID);
+        ).addTo(myMap).on('click', redirectToPost);
       });
     };
 
-    // log their alt text when clicked
-    function logID(event) {
-      console.log(event.target.options.id);
+    // redirect user to a specific post when clicked
+    function redirectToPost(event) {
+      location.href = '/posts?id=' + event.target.options.id;
     };
   }
 
