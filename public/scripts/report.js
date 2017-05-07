@@ -93,7 +93,7 @@
 
     // Validate and Format input.
 
-    IndexModule.makeRequest('/post-report', 'POST', JSON.stringify(reportData), function(err, res){
+    indexModule.makeRequest('/post-report', 'POST', JSON.stringify(reportData), function(err, res){
       if (err) console.log(err);
 
       // front-end post request callback
