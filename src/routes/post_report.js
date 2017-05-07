@@ -17,7 +17,6 @@ module.exports = {
       return dbQueries.postReportTags(connPool, postData, (postErr) => {
         if (postErr) return console.log(postErr);
         // redirect user to new post view
-        // console.log('/posts?id=', postId);
         return reply.redirect(`/posts?id=${postId}`);
       });
     });

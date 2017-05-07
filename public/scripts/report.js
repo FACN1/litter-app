@@ -48,7 +48,7 @@
 
   function submitHandler(event){
     event.preventDefault();
-
+    // validate form data
     extractFormData(event);
   }
 
@@ -69,7 +69,11 @@
         return typeBox.value;
       });
 
-    // Validate and Format input.
+    // document.getElementById('avatarUrl').value
+    if (form.avatarUrl.value !== '') {
+      reportData.image = form.avatarUrl.value;
+    };
+    // Validate input.
 
     indexModule.makeRequest('/post-report', 'POST', JSON.stringify(reportData), function(err, res){
       if (err) console.log(err);

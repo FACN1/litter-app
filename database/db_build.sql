@@ -4,8 +4,8 @@ DROP TABLE IF EXISTS posts, tags, posts_tags, markers cascade;
 
 CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
-  location TEXT NOT NULL,
   image_url TEXT DEFAULT NULL,
+  location TEXT NOT NULL,
   size TEXT NOT NULL,
   description TEXT NOT NULL,
   date_published TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP

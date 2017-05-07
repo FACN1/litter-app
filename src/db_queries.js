@@ -10,8 +10,8 @@ dbQueries.getMarkers = (connPool, callback) => {
 
 dbQueries.postReportDetails = (connPool, data, callback) => {
   connPool.query(
-    'INSERT INTO posts (location, description, size) VALUES ($1, $2, $3) RETURNING id AS post_id',
-    [data.location, data.description, data.size],
+    'INSERT INTO posts (image_url, location, description, size) VALUES ($1, $2, $3, $4) RETURNING id AS post_id',
+    [data.image, data.location, data.description, data.size],
     callback
   );
 };
