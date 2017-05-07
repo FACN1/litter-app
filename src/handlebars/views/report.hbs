@@ -3,11 +3,12 @@
 
 <section class="page-content">
 
-    <form class="report-form" action="/" method="post">
+    <form class="report-form" id="reportForm">
 
       <!-- image input -->
       <img class="button form-button image hidden" id="previewImage" />
       <label class="button form-button" id="imageInputLabel" for="imageFile">Upload Image</label>
+      
       <input class="button form-button image-input" type="file" id="imageFile" accept="image/*" name="image" />
       <input type="hidden" id="avatarUrl" name="avatarUrl" />
 
@@ -15,67 +16,54 @@
       <button class="button form-button" id="getLocationButton" type="button" name="location">Submit Location</button>
 
       <!-- description -->
-      <label class="input-label" for="descriptionInput">Description:</label>
+      <label class="input-label" for="descriptionInput">Description</label>
 
       <textarea class="button form-button description-textarea" id="descriptionInput" placeholder="Maximum 200 characters" name="description" rows="8" cols="80" maxlength="200"></textarea>
 
       <!-- size select -->
-      <label class="input-label" for="sizeSelect">The waste fits in a:</label>
+      <label class="input-label" for="sizeSelect">The waste fits in a...</label>
 
-      <select class="button form-button" id="sizeSelect" name="">
-        <option value="binbag">Binbag</option>
-        <option value="wheelbarrow">Wheelbarrow</option>
-        <option value="car">Car</option>
-        <option value="small-van">Small Van</option>
-        <option value="large-van">Large Van</option>
+      <select class="button form-button" id="sizeSelect" name="size">
+        <option value="">Choose a size</option>
+        <option value="Binbag">Binbag</option>
+        <option value="Wheelbarrow">Wheelbarrow</option>
+        <option value="Car">Car</option>
+        <option value="Small Van">Small Van</option>
+        <option value="Large Van">Large Van</option>
       </select>
 
       <!-- type-select  -->
-      <label class="input-label" for="type">Select any applicable tags:</label>
+      <label class="input-label" for="type">Select any applicable tags</label>
 
-      <fieldset class="type-wrap">
+      <fieldset class="type-wrap" name="type">
 
         <div class="type-row">
-
           <div class="type-col">
-
-            <input class="type-checkbox" id="recycleableCheck" type="checkbox" name="type" value="recyclable"> Recyclable
-
+            <input class="type-checkbox" type="checkbox" value="1">Recyclable
           </div>
-
           <div class="type-col">
-
-            <input class="type-checkbox" id="electronicCheck" type="checkbox" name="type" value="electronic"> Electronic
-
+            <input class="type-checkbox" type="checkbox" value="2">Electronic
           </div>
-
         </div>
 
         <div class="type-row">
-
           <div class="type-col">
-
-            <input class="type-checkbox" id="dumpCheck" type="checkbox" name="type" value="dump"> Dump
+            <input class="type-checkbox" type="checkbox" value="3">Dump
           </div>
-
           <div class="type-col">
-
-            <input class="type-checkbox" id="sharpsCheck" type="checkbox" name="type" value="sharps"> Sharp Objects
+            <input class="type-checkbox" type="checkbox" value="4">Sharp Objects
           </div>
-
         </div>
 
         <div class="type-row">
-
           <div class="type-col">
-            <input class="type-checkbox" id="hazchemCheck" type="checkbox" name="type" value="hazchem"> Hazardous Chemicals
+            <input class="type-checkbox" type="checkbox" value="5">Hazardous Chemicals
           </div>
-
         </div>
 
       </fieldset>
 
-      <input class="button submit-button" id="submitReport" type="submit" value="Submit">
+      <input class="button submit-button" type="submit" value="Submit">
 
     </form>
 
