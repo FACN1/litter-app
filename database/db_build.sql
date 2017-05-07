@@ -4,8 +4,8 @@ DROP TABLE IF EXISTS posts, tags, posts_tags, markers cascade;
 
 CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
-  location TEXT NOT NULL,
   image_url TEXT DEFAULT NULL,
+  location TEXT NOT NULL,
   size TEXT NOT NULL,
   description TEXT NOT NULL,
   date_published TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -49,14 +49,14 @@ INSERT INTO posts (location, image_url, size, description) VALUES
 
 INSERT INTO tags (id, description) VALUES
 (1, 'Recyclable'),
-(2, 'Landfill'),
-(3, 'Electronic'),
-(4, 'Hazardous Chemicals'),
-(5, 'Sharp');
+(2, 'Electronic'),
+(3, 'Dump'),
+(4, 'Sharp'),
+(5, 'Hazardous Chemicals');
 
 INSERT INTO posts_tags (post_id, tag_id) VALUES
-(1, 2),
 (1, 1),
+(1, 2),
 (1, 3),
 (2, 2),
 (3, 2);
