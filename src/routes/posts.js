@@ -14,7 +14,7 @@ module.exports = {
 
       const context = {
         title: 'Posts Page',
-        imgUrl: postData.image_url
+        post: postData
       };
 
       return reply.view('posts', context);
