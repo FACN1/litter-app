@@ -70,7 +70,7 @@
 
       // extract url from response
       var data = JSON.parse(res);
-      var url = '/posts?id='+data.post_id;
+      var url = '/posts?id='+res;
 
       // redirect user to new post URL
       location.href=url;

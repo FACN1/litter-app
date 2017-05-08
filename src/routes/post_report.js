@@ -37,9 +37,7 @@ module.exports = {
         if (error) return console.log(error);
 
         // return post ID to scripts/report.js
-        return reply(JSON.stringify({
-          post_id: insertData.post_id
-        }));
+        return reply(insertData.post_id);
       });
   }
 };
