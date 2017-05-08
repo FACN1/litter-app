@@ -11,7 +11,8 @@ module.exports = {
     // insert report details
     const insertDetails = (postData) => {
       const insertData = postData;
-      dbQueries.postReportDetails(connPool, insertData, (postReportDetailsError, result) => {
+      console.log('. insertDetails successfull');
+      return dbQueries.postReportDetails(connPool, insertData, (postReportDetailsError, result) => {
         if (postReportDetailsError) return console.log(postReportDetailsError);
 
         const postId = result.rows[0].post_id;
@@ -28,6 +29,7 @@ module.exports = {
           return insertData;
         });
       }
+      console.log('>> insertPostsTags succesfull');
       return insertData;
     };
     // asynchronously insert details and posts_tags
