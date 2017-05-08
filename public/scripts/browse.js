@@ -63,7 +63,21 @@
   function addMarkers(myMap) {
     // make XHR request for markers
     indexModule.makeRequest('/get-markers', 'GET', null, function(err, res) {
-      createMarkers(JSON.parse(res));
+      // create array of objects with id, latitude and longitude properties
+      var markersArray = JSON.parse(res)
+        .filter(function(marker) {
+          if (marker.location) return marker;
+        })
+        .map(function(marker) {
+          var latLon = marker.location.split(',');
+          return {
+            post_id: marker.id,
+            latitude: latLon[0],
+            longitude: latLon[1]
+          }
+        });
+
+      createMarkers(markersArray);
     });
 
     // create markers with database data
@@ -71,7 +85,7 @@
       markers.map(function(marker) {
         L.marker(
           [marker.latitude, marker.longitude],
-          {id: marker.post_id}
+          { id: marker.post_id }
         ).addTo(myMap).on('click', redirectToPost);
       });
     };

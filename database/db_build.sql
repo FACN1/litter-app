@@ -21,12 +21,6 @@ CREATE TABLE posts_tags (
   tag_id INTEGER NOT NULL REFERENCES tags (id)
 );
 
-CREATE TABLE markers (
-  post_id INTEGER NOT NULL UNIQUE REFERENCES posts(id),
-  latitude DECIMAL NOT NULL,
-  longitude DECIMAL NOT NULL
-);
-
 INSERT INTO posts (location, image_url, size, description) VALUES
 (
   '32.701509,35.310147',
@@ -60,10 +54,5 @@ INSERT INTO posts_tags (post_id, tag_id) VALUES
 (1, 3),
 (2, 2),
 (3, 2);
-
-INSERT INTO markers (post_id, latitude, longitude) VALUES
-(1, 32.701509, 35.310147),
-(2, 32.693757, 35.299489),
-(3, 51.528558, -0.241701);
 
 COMMIT;

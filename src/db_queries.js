@@ -2,7 +2,7 @@ const dbQueries = {};
 
 dbQueries.getMarkers = (connPool, callback) => {
   connPool.query(
-    'SELECT * FROM markers',
+    'SELECT id, location FROM posts',
     callback
   );
 };
