@@ -57,10 +57,10 @@
     var typesList = Array.from(form.type.elements);
 
     reportData.type_tags = typesList
-      .filter(function(typeBox){
-        if(typeBox.checked) return typeBox.value;
+      .filter(function(typeBox) {
+        if (typeBox.checked) return typeBox.value;
       })
-      .map(function(typeBox){
+      .map(function(typeBox) {
         return typeBox.value;
       });
 
