@@ -67,6 +67,13 @@
     // post reportData to server
     indexModule.makeRequest('/post-report', 'POST', JSON.stringify(reportData), function(err, res) {
       if (err) console.log(err);
+
+      // extract url from response
+      var data = JSON.parse(res);
+      var url = '/posts?id='+data.post_id;
+
+      // redirect user to new post URL
+      location.href=url;
     });
   }
 })();
