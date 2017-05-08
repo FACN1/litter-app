@@ -26,7 +26,7 @@ dbQueries.getTags = (connPool, id, callback) => {
 dbQueries.postReportDetails = (connPool, data, callback) => {
   connPool.query(
     'INSERT INTO posts (image_url, location, description, size) VALUES ($1, $2, $3, $4) RETURNING id AS post_id',
-    [data.image, data.location, data.description, data.size],
+    [data.imageUrl, data.location, data.description, data.size],
     callback
   );
 };
