@@ -1,28 +1,42 @@
 const connPool = require('../../database/db_connect');
 const dbQueries = require('../db_queries');
+const async = require('../async.js');
 
 module.exports = {
   method: 'POST',
   path: '/post-report',
   handler: (request, reply) => {
-    const postData = JSON.parse(request.payload);
+    const formData = JSON.parse(request.payload);
 
-    dbQueries.postReportDetails(connPool, postData, (err, result) => {
-      if (err) return console.log(err);
+    // insert report details
+    const insertDetails = (postData) => {
+      const insertData = postData;
+      dbQueries.postReportDetails(connPool, insertData, (postReportDetailsError, result) => {
+        if (postReportDetailsError) return console.log(postReportDetailsError);
 
-      const postId = result.rows[0].post_id;
+        const postId = result.rows[0].post_id;
+        insertData.post_id = postId;
+        return insertData;
+      });
+    };
 
-      postData.post_id = postId;
-
-      if (postData.type_tags.length > 0) {
-        return dbQueries.postReportTags(connPool, postData, (postErr) => {
+    // insert posts tags
+    const insertPostsTags = (insertData) => {
+      if (insertData.type_tags.length > 0) {
+        return dbQueries.postReportTags(connPool, insertData, (postErr) => {
           if (postErr) return console.log(postErr);
-          // redirect user to new post view
-          return reply.redirect(`/posts?id=${postId}`);
+          return insertData;
         });
       }
-
-      return reply.redirect(`/posts?id=${postId}`);
-    });
+      return insertData;
+    };
+    async.waterfall(
+      formData,
+      [insertDetails, insertPostsTags],
+      (error, insertData) => {
+        if (error) return console.log(error);
+        return reply.redirect('posts', insertData.post_id);
+      });
+    // return reply.redirect(`/posts?id=${postId}`);
   }
 };
