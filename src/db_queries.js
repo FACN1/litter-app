@@ -38,7 +38,7 @@ dbQueries.postReportTags = (connPool, data, callback) => {
   data.type_tags.map((tag, index, array) => {
     queryString += `($${(index * 2) + 1}, $${(index * 2) + 2})`;
     if (index !== array.length - 1) queryString += ', ';
-    return dataArray.push(data.post_id, data.type_tags[index]);
+    dataArray.push(data.post_id, data.type_tags[index]);
   });
 
   connPool.query(
