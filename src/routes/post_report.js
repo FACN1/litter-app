@@ -30,6 +30,8 @@ module.exports = {
       }
       return insertData;
     };
+    // asynchronously insert details and posts_tags
+    // passing post ID to callback
     async.waterfall(
       formData,
       [insertDetails, insertPostsTags],
