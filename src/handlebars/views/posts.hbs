@@ -1,0 +1,23 @@
+{{>header}}
+
+<section class="page-content">
+  <div class="post-wrap">
+    <a class="post-box view" href="/browse?loc={{encode post.location}}">
+      <div class="fa fa-map-o map-icon"></div>
+      View on Map
+    </a>
+    <img class="post-box img" src="{{post.image_url}}" />
+    <div class="post-box size">
+      <span class="box-title">Size</span>
+      {{post.size}}
+    </div>
+    <div class="post-box tags">
+      <span class="box-title">Tags</span>
+      {{#each post.tags}}
+        <span class="tag">{{this}}</span>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript" src="./scripts/index.js"></script>

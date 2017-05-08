@@ -1,7 +1,7 @@
 {{>header}}
 
 <section class="page-content" id="pageContent">
-  <div id="myMap" class="my-map" data-token="{{token}}">Loading Map</div>
+  <div id="myMap" class="my-map" data-token="{{token}}" data-coords="{{coords}}">Loading Map</div>
 </section>
 
 <!-- LeafletJS -->
@@ -14,4 +14,5 @@
 <!-- Leaflet Geosearch plugin -->
 <script src="https://unpkg.com/leaflet-geosearch@2.2.0/dist/bundle.min.js"></script>
 
+<script type="text/javascript" src="./scripts/index.js"></script>
 <script type="text/javascript" src="./scripts/browse.js"></script>

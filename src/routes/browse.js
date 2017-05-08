@@ -13,6 +13,9 @@ module.exports = {
       token: process.env.MAPBOX_TOKEN
     };
 
+    // if there is a location query parameter, add to context
+    if (request.query.loc) context.coords = request.query.loc;
+
     return reply.view('browse', context);
   }
 };

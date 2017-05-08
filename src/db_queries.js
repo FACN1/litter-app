@@ -2,7 +2,23 @@ const dbQueries = {};
 
 dbQueries.getMarkers = (connPool, callback) => {
   connPool.query(
-    'SELECT * FROM markers',
+    'SELECT id, location FROM posts',
+    callback
+  );
+};
+
+dbQueries.getPostData = (connPool, id, callback) => {
+  connPool.query(
+    'SELECT * FROM posts WHERE id = $1',
+    [id],
+    callback
+  );
+};
+
+dbQueries.getTags = (connPool, id, callback) => {
+  connPool.query(
+    'SELECT description FROM tags WHERE id IN (SELECT tag_id FROM posts_tags WHERE post_id = $1)',
+    [id],
     callback
   );
 };
@@ -22,7 +38,7 @@ dbQueries.postReportTags = (connPool, data, callback) => {
   data.type_tags.map((tag, index, array) => {
     queryString += `($${(index * 2) + 1}, $${(index * 2) + 2})`;
     if (index !== array.length - 1) queryString += ', ';
-    return dataArray.push(data.post_id, data.type_tags[index]);
+    dataArray.push(data.post_id, data.type_tags[index]);
   });
 
   connPool.query(
