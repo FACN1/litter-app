@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS posts, tags, posts_tags, markers cascade;
+DROP TABLE IF EXISTS posts, tags, posts_tags cascade;
 
 CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
