@@ -25,6 +25,7 @@
   top: -5px;
   left: -5px;
   padding: 5px;
+  border-radius: 1px;
   box-shadow: 0 0 5px 1px #ccc;
   font: bold 18px $default;
   color: #59882b;
@@ -37,8 +38,15 @@
   color: $waitrose-green;
 }
 
-.tags {
-  text-align: center;
-  font: bold 18px $default;
+.post-box.tags {
+  @include flexbox;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 5px;
+  margin: 5px;
+  font: bold 16px $default;
   color: $waitrose-green;
+  background-color: #eee;
 }

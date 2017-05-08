@@ -9,7 +9,9 @@
     </div>
     <div class="post-box tags">
       <span class="box-title">Tags</span>
-      TAGS HERE
+      {{#each post.tags}}
+        <span class="tag">{{this}}</span>
+      {{/each}}
     </div>
   </div>
 </section>

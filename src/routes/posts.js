@@ -28,7 +28,7 @@ module.exports = {
             if (nameErr) return console.log(nameErr);
 
             // reduce to array of tag names and add to view context
-            context.post.tagNames = nameRes.rows.map(name => name.description);
+            context.post.tags = nameRes.rows.map(name => name.description);
             return reply.view('posts', context);
           });
         }
