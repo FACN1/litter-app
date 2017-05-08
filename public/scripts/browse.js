@@ -66,7 +66,7 @@
       // create array of objects with id, latitude and longitude properties
       var markersArray = JSON.parse(res)
         .filter(function(marker) {
-          if (marker.location) return marker;
+          return marker.location; // filter only those with a location value
         })
         .map(function(marker) {
           var latLon = marker.location.split(',');
