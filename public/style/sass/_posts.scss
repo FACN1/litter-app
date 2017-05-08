@@ -34,7 +34,7 @@
 
 .size {
   text-align: center;
-  font: bold 18px $default;
+  font: bold 17px $default;
   color: $waitrose-green;
 }
 
@@ -46,7 +46,17 @@
 .tag {
   padding: 5px;
   margin: 5px;
-  font: bold 16px $default;
+  font: bold 15px $default;
   color: $waitrose-green;
   background-color: #eee;
+}
+
+.post-box.view {
+  @include flexbox;
+  color: $waitrose-green;
+  font: bold 17px $default;
+}
+
+.map-icon {
+  margin-right: 10px;
 }

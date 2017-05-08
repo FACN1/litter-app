@@ -4,6 +4,12 @@
     var mapDiv = document.getElementById('myMap');
     var mapBoxToken = mapDiv.dataset.token;
 
+    // if there's coord data on the map div, create map using those coords
+    if (mapDiv.dataset.coords) {
+      coordsArray = mapDiv.dataset.coords.split(',');
+      return createMap(mapBoxToken, coordsArray[0], coordsArray[1]);
+    }
+
     // if no navigator on user's browser, default to London UK
     if (!navigator.geolocation) {
       createMap(mapBoxToken, 51.5285582, -0.2417011);
