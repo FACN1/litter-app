@@ -1,15 +1,18 @@
 (() => {
   function waterfall(input, tasks, callback) {
-    // console.log('>>waterfall linked');
+    console.log('tasks: ', tasks);
     if (tasks.length === 0) {
       return callback(null, input);
     }
-    return tasks[0](input, (err, result) => {
-      if (err) {
-        return callback(err);
-      }
-      return waterfall(result, tasks.slice(1), callback);
-    });
+    else {
+      tasks[0](input, (err, input) => {
+        console.log('tasks[0] called');
+        if (err) {
+          return callback(err);
+        }
+        return waterfall(input, tasks.slice(1), callback);
+      });
+    }
   }
   module.exports = {
     waterfall

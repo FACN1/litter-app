@@ -17,6 +17,7 @@ module.exports = {
 
         const postId = result.rows[0].post_id;
         insertData.post_id = postId;
+        // console.log('insertData: ', insertData);
         return insertData;
       });
     };
@@ -24,6 +25,7 @@ module.exports = {
     // insert posts tags
     const insertPostsTags = (insertData) => {
       if (insertData.type_tags.length > 0) {
+        console.log('>> insertPostsTags succesfull');
         return dbQueries.postReportTags(connPool, insertData, (postErr) => {
           if (postErr) return console.log(postErr);
           return insertData;
@@ -35,11 +37,10 @@ module.exports = {
     // asynchronously insert details and posts_tags
     // passing post ID to callback
     async.waterfall(
-      formData,
-      [insertDetails, insertPostsTags],
-      (error, insertData) => {
+      formData, [insertDetails, insertPostsTags], (error, insertData) => {
         if (error) return console.log(error);
-        return reply.redirect('posts', insertData.post_id);
+        console.log('callback reached');
+        return reply.redirect(`/posts?id=${insertData.post_id}`);
       });
     // return reply.redirect(`/posts?id=${postId}`);
   }
