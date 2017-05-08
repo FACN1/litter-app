@@ -18,19 +18,10 @@ module.exports = {
       return dbQueries.getTags(connPool, request.query.id, (tagsErr, tagsRes) => {
         if (tagsErr) return console.log(tagsErr);
 
-        // if there are any tags, request their relative names from the DB
+        // if there are any associated tags, add them to the view context
         if (tagsRes.rows.length > 0) {
-          // reduce to array of tag ids
-          const tagIds = tagsRes.rows.map(tag => tag.tag_id);
-
-          // request tag names using tag ids
-          return dbQueries.getTagNames(connPool, tagIds, (nameErr, nameRes) => {
-            if (nameErr) return console.log(nameErr);
-
-            // reduce to array of tag names and add to view context
-            context.post.tags = nameRes.rows.map(name => name.description);
-            return reply.view('posts', context);
-          });
+          context.post.tags = tagsRes.rows.map(tag => tag.description);
+          return reply.view('posts', context);
         }
 
         // return here if no tags
