@@ -51,7 +51,9 @@
           if (marker) {
             myMap.removeLayer(marker);
           }
-          console.log(e.latlng);
+          // format coords for storage in value attribute
+          var coords = e.latlng.lat + ',' + e.latlng.lng;
+          document.getElementById('useLocation').setAttribute('value', coords);
           marker = L.marker(e.latlng).addTo(myMap);
         }
       });
@@ -91,7 +93,6 @@
             longitude: latLon[1]
           }
         });
-
       createMarkers(markersArray);
     });
 

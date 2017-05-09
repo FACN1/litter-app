@@ -1,20 +1,22 @@
 (function() {
+
+  var searchLocationButton = document.getElementById('searchLocation');
   // add listener to get location button
-  var locationButton = document.getElementById('getLocationButton');
-  locationButton.addEventListener('click', getLocation);
+  var useLocationButton = document.getElementById('getLocationButton');
+  useLocationButton.addEventListener('click', getLocation);
 
   // get user's location
   function getLocation() {
-    locationButton.innerHTML = 'Getting your location...';
-    locationButton.classList.add('getting-location');
+    useLocationButton.innerHTML = 'Getting your location...';
+    useLocationButton.classList.add('getting-location');
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(storePosition, function(err) {
         console.log('error:', err);
 
-        locationButton.innerHTML = 'Error Getting Location';
-        locationButton.classList.remove('getting-location');
-        locationButton.classList.add('error-getting-location');
+        useLocationButton.innerHTML = 'Error Getting Location';
+        useLocationButton.classList.remove('getting-location');
+        useLocationButton.classList.add('error-getting-location');
       });
     } else {
       // non-support error handling
@@ -26,11 +28,46 @@
   function storePosition(position) {
     var coords = position.coords.latitude + ',' + position.coords.longitude;
 
-    locationButton.setAttribute('value', coords);
-    locationButton.innerHTML = 'Using current location';
-    locationButton.classList.remove('getting-location');
-    locationButton.classList.add('using-location');
+    useLocationButton.setAttribute('value', coords);
+    useLocationButton.innerHTML = 'Using current location';
+    useLocationButton.classList.remove('getting-location');
+    useLocationButton.classList.add('using-location');
+    searchLocationButton.innerHTML = 'Search Location';
+    searchLocationButton.classList.remove('using-location');
+
   };
+
+  // SELECT LOCATION:
+
+  var closeButton = document.getElementById('closeButton');
+
+  // close map view onclick
+  closeButton.addEventListener('click', function(event){
+    document.getElementById('selectView').classList.remove('expanded');
+  });
+
+  // expand map view for location selection
+  searchLocationButton.addEventListener('click', expandSearchView);
+
+  function expandSearchView(){
+    document.getElementById('selectView').classList.add('expanded');
+  }
+  // target confirm button
+  var confirmButton = document.getElementById('useLocation');
+
+  // onclick: pass lat long coords back to locationButton value
+  confirmButton.addEventListener('click', storeChosenCoords);
+
+  function storeChosenCoords(e){
+    document.getElementById('selectView').classList.remove('expanded');
+    useLocationButton.setAttribute('value', e.target.value);
+    useLocationButton.innerHTML = 'Use Current Location';
+    useLocationButton.classList.remove('using-location');
+
+    searchLocationButton.innerHTML = 'Location Selected';
+    searchLocationButton.classList.add('using-location');
+
+  }
 
   // add listener to report form
   var reportForm = document.getElementById('reportForm');
@@ -71,19 +108,7 @@
 
   }
 
-  // SELECT LOCATION
-  // target close button
-  var closeButton = document.getElementById('closeButton');
 
-  closeButton.addEventListener('click', function(event){
-    document.getElementById('selectView').classList.remove('expanded');
-  });
 
-  var searchLocationButton = document.getElementById('searchLocation');
-
-  searchLocationButton.addEventListener('click', expandSearchView);
-  function expandSearchView(){
-    document.getElementById('selectView').classList.add('expanded');
-  }
 
 })();
