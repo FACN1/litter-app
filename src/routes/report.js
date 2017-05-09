@@ -3,7 +3,9 @@ module.exports = {
   path: '/report',
   handler: (request, reply) => {
     const context = {
-      title: 'Report Waste'
+      title: 'Report Waste',
+      token: process.env.MAPBOX_TOKEN,
+      origin: 'report'
     };
 
     return reply.view('report', context);

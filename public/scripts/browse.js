@@ -40,7 +40,9 @@
 
     addSearchBar(myMap);
 
-    addMarkers(myMap);
+    if (document.getElementById('myMap').dataset.origin === "browse") {
+      addMarkers(myMap);
+    }
   }
 
   // add Leaflet Geosearch plugin to map

@@ -10,7 +10,8 @@ module.exports = {
 
     const context = {
       title: 'Browse Map',
-      token: process.env.MAPBOX_TOKEN
+      token: process.env.MAPBOX_TOKEN,
+      origin: 'browse'
     };
 
     // if there is a location query parameter, add to context

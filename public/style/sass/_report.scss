@@ -1,3 +1,46 @@
+
+.select-view {
+  position: absolute;
+  width: calc(91vw + 15px);
+  height: calc(100vh - #{$header-height});
+  top: calc(#{$header-height} + 15px);
+  left: calc((-91vw) - 20px);
+  transition: 0.5s;
+}
+
+.expanded {
+  left: -15px;
+}
+
+.my-map.report {
+  box-shadow: 0 0 5px 1px #ccc;
+  border: 15px solid white;
+  width: 100%;
+  height: 90%;
+  z-index: 1;
+}
+
+.select-view button {
+  background: white;
+  margin: 10px;
+  border-radius: 4px;
+  border: 2px solid rgba(0,0,0,0.2);
+  color: $text-off-black;
+  font-size: 30px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 2;
+}
+
+.my-map.report form {
+  width: calc(65vw - 55px;)
+}
+
+.my-map.report form input {
+  min-width: 0;
+}
+
 .report-form {
   display: flex;
   flex-direction: column;
@@ -52,6 +95,12 @@
 
 .image-input {
   display: none;
+}
+
+.expanded-location {
+  @include flexbox;
+  flex-direction: column;
+  height: 110px;
 }
 
 .getting-location {

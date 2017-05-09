@@ -68,5 +68,22 @@
     indexModule.makeRequest('/post-report', 'POST', JSON.stringify(reportData), function(err, res) {
       if (err) console.log(err);
     });
+
   }
+
+  // SELECT LOCATION
+  // target close button
+  var closeButton = document.getElementById('closeButton');
+
+  closeButton.addEventListener('click', function(event){
+    document.getElementById('selectView').classList.remove('expanded');
+  });
+
+  var searchLocationButton = document.getElementById('searchLocation');
+
+  searchLocationButton.addEventListener('click', expandSearchView);
+  function expandSearchView(){
+    document.getElementById('selectView').classList.add('expanded');
+  }
+
 })();

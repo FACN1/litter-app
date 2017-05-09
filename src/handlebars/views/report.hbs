@@ -1,6 +1,13 @@
 <!-- FORM -->
 {{> header}}
 
+
+<div class="select-view" id="selectView">
+    <button class="material-icons close-button" id="closeButton">arrow_back
+    </button>
+  {{> map}}
+</div>
+
 <section class="page-content">
 
     <form class="report-form" id="reportForm">
@@ -13,11 +20,12 @@
       <input type="hidden" id="avatarUrl" name="avatarUrl" />
 
       <!-- location input -->
-      {{> select_location}}
       <div class="button form-button expanded-location" id="provideLocation">
-        <button class="button form-button" id="" type="button" name="location">Search Location</button>
+
+        <button class="button form-button" id="searchLocation" type="button" name="">Search Location</button>
 
         <button class="button form-button" id="getLocationButton" type="button" name="location">Use Current Location</button>
+
       </div>
 
       <!-- description -->
@@ -77,3 +85,4 @@
 <script type="text/javascript" src="./scripts/index.js"></script>
 <script type="text/javascript" src="./scripts/report.js"></script>
 <script type="text/javascript" src="./scripts/s3.js"></script>
+<script type="text/javascript" src="./scripts/browse.js"></script>
