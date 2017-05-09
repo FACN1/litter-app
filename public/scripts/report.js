@@ -1,6 +1,6 @@
 (function() {
   // add listener to get location button
-  var locationButton = document.getElementById('getLocationButton');
+  var locationButton = document.getElementById('location');
   locationButton.addEventListener('click', getLocation);
 
   // get user's location
@@ -50,19 +50,19 @@
 
     // check location
     if (!data.location.value.trim()) {
-      document.getElementById('getLocationButton').classList.add('danger');
+      document.getElementById('location').classList.add('danger');
       pass = false;
     }
 
     // check description
     if (!data.description.value.trim()) {
-      document.getElementById('descriptionInput').classList.add('danger');
+      document.getElementById('description').classList.add('danger');
       pass = false;
     }
 
     // check size
     if (!data.size.value.trim()) {
-      document.getElementById('sizeSelect').classList.add('danger');
+      document.getElementById('size').classList.add('danger');
       pass = false;
     }
 
@@ -73,18 +73,36 @@
     });
 
     if (!checked.length > 0) {
-      document.getElementById('typeWrap').classList.add('danger');
+      document.getElementById('type').classList.add('danger');
       pass = false;
     }
 
-    if (pass) {
-      return true;
+    return pass;
+  }
+
+  // add event listeners to form inputs - checking for validation completion
+  var formInputs = document.getElementsByClassName('listen');
+  Array.from(formInputs).forEach(function(input) {
+    if (input.id === 'description' || input.id === 'size') {
+      input.addEventListener('input', function(e) {
+        removeWarning(e.target);
+      });
     } else {
-      return false;
+      input.addEventListener('click', function(e) {
+        if (e.target.type === 'checkbox') {
+          removeWarning(document.getElementById('type'));
+        } else {
+          removeWarning(e.target);
+        }
+      });
     }
 
-    // pass === true ? return true : return false;
-  }
+    function removeWarning(target) {
+      if (target.classList.contains('danger')) {
+        target.classList.remove('danger');
+      }
+    }
+  });
 
   // create report data object and post to server
   function extractFormData(event) {
