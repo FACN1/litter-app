@@ -43,6 +43,19 @@
     if (document.getElementById('myMap').dataset.origin === "browse") {
       addMarkers(myMap);
     }
+
+    if (document.getElementById('myMap').dataset.origin === "report") {
+      var marker;
+      myMap.on('click', function(e) {
+        if (e.originalEvent.target.id === "myMap") {
+          if (marker) {
+            myMap.removeLayer(marker);
+          }
+          console.log(e.latlng);
+          marker = L.marker(e.latlng).addTo(myMap);
+        }
+      });
+    }
   }
 
   // add Leaflet Geosearch plugin to map
