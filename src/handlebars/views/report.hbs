@@ -13,7 +13,12 @@
       <input type="hidden" id="avatarUrl" name="avatarUrl" />
 
       <!-- location input -->
-      <button class="button form-button" id="getLocationButton" type="button" name="location">Submit Location</button>
+      {{> select_location}}
+      <div class="button form-button expanded-location" id="provideLocation">
+        <button class="button form-button" id="" type="button" name="location">Search Location</button>
+
+        <button class="button form-button" id="getLocationButton" type="button" name="location">Use Current Location</button>
+      </div>
 
       <!-- description -->
       <label class="input-label" for="descriptionInput">Description</label>
