@@ -1,16 +1,18 @@
+// GENERAL
+
 .post-wrap {
   @include flexbox;
   justify-content: flex-start;
   flex-direction: column;
   width: 100%;
-  height: calc(100vh - #{$header-height});
+  min-height: calc(100vh - #{$header-height});
   padding: 20px;
 }
 
 .post-box {
   position: relative;
   width: 100%;
-  padding: 15px;
+  padding: 35px 15px 15px 15px;
   border-radius: 2px;
   box-shadow: 0 0 5px 1px #ccc;
   background-color: white;
@@ -32,15 +34,43 @@
   background-color: white;
 }
 
+.box-header-bar {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  width: calc(100% - 12px);
+  height: 2px;
+  background-color: #eee;
+}
+
+// BOXES
+
+.view {
+  @include flexbox;
+  padding: 15px;
+  color: $waitrose-green;
+  font: bold 17px $default;
+}
+
+.map-icon {
+  margin-right: 10px;
+}
+
+.img {
+  padding: 15px;
+}
+
 .size {
+  padding: 25px 15px 15px 15px;
   text-align: center;
   font: bold 17px $default;
   color: $waitrose-green;
 }
 
-.post-box.tags {
+.tags {
   @include flexbox;
   flex-wrap: wrap;
+  padding: 30px 15px 10px 15px;
 }
 
 .tag {
@@ -51,12 +81,7 @@
   background-color: #eee;
 }
 
-.post-box.view {
-  @include flexbox;
-  color: $waitrose-green;
-  font: bold 17px $default;
-}
-
-.map-icon {
-  margin-right: 10px;
+.description {
+  padding: 40px 15px 15px 15px;
+  font: 15px $default;
 }

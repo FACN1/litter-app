@@ -2,20 +2,38 @@
 
 <section class="page-content">
   <div class="post-wrap">
+    <!-- map button -->
     <a class="post-box view" href="/browse?loc={{encode post.location}}">
       <div class="fa fa-map-o map-icon"></div>
       View on Map
     </a>
+
+    <!-- image -->
     <img class="post-box img" src="{{post.image_url}}" />
+
+    <!-- size -->
     <div class="post-box size">
+      <div class="box-header-bar"></div>
       <span class="box-title">Size</span>
       {{post.size}}
     </div>
+
+    <!-- tags -->
     <div class="post-box tags">
+      <div class="box-header-bar"></div>
       <span class="box-title">Tags</span>
       {{#each post.tags}}
         <span class="tag">{{this}}</span>
       {{/each}}
+    </div>
+
+    <!-- description -->
+    <div class="post-box description">
+      <div class="box-header-bar"></div>
+      <span class="box-title">Info</span>
+      <p>
+        {{post.description}}
+      </p>
     </div>
   </div>
 </section>
