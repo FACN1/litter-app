@@ -9,11 +9,9 @@
   box-shadow: 0 0 5px 1px #ccc;
 }
 
-.input-label,
-.type-wrap {
+.input-label {
   font: 15px $default;
-  font-weight: 500;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 
 .button, select, .type-wrap {
@@ -94,4 +92,8 @@
 
 .hidden {
   display: none;
+}
+
+.danger {
+  box-shadow: 0 0 5px 2px tomato;
 }

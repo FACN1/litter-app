@@ -38,8 +38,52 @@
 
   function submitHandler(event){
     event.preventDefault();
-    // validate form data here
-    extractFormData(event);
+
+    if (validateFormData(event.target.elements)) {
+      extractFormData(event);
+    }
+  }
+
+  // validate form data before posting to server
+  function validateFormData(data) {
+    var pass = true;
+
+    // check location
+    if (!data.location.value.trim()) {
+      document.getElementById('getLocationButton').classList.add('danger');
+      pass = false;
+    }
+
+    // check description
+    if (!data.description.value.trim()) {
+      document.getElementById('descriptionInput').classList.add('danger');
+      pass = false;
+    }
+
+    // check size
+    if (!data.size.value.trim()) {
+      document.getElementById('sizeSelect').classList.add('danger');
+      pass = false;
+    }
+
+    // check type
+    var typeArray = Array.from(data.type.elements);
+    var checked = typeArray.filter(function(field) {
+      return field.checked;
+    });
+
+    if (!checked.length > 0) {
+      document.getElementById('typeWrap').classList.add('danger');
+      pass = false;
+    }
+
+    if (pass) {
+      return true;
+    } else {
+      return false;
+    }
+
+    // pass === true ? return true : return false;
   }
 
   // create report data object and post to server
