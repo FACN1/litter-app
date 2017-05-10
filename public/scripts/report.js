@@ -79,6 +79,7 @@
   // create report data object and post to server
   function extractFormData(event) {
     var form = event.target.elements;
+    console.log(form);
     var reportData = {};
 
     // add main info to reportData

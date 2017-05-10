@@ -1,6 +1,6 @@
 
 .select-view {
-  position: absolute;
+  position: fixed;
   width: calc(91vw + 15px);
   height: calc(100vh - #{$header-height});
   top: calc(#{$header-height} + 15px);
