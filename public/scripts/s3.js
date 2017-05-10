@@ -8,7 +8,9 @@
 
   // retrieve signed request from back end
   function getSignedRequest(file) {
-    var url = '/sign-s3?file-name=' + file.name + '&file-type=' + file.type;
+    // create unique filename for s3
+    var fileName = new Date().getTime().toString().concat('_').concat(file.name);
+    var url = '/sign-s3?file-name=' + fileName + '&file-type=' + file.type;
 
     // make request to server route /sign-s3
     indexModule.makeRequest(url, 'GET', null, function(err, response) {
