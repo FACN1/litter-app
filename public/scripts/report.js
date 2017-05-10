@@ -39,69 +39,107 @@
   function submitHandler(event){
     event.preventDefault();
 
-    if (validateFormData(event.target.elements)) {
-      extractFormData(event);
+    if (validateWholeForm(event.target.elements)) {
+      // extractFormData(event);
+    }
+  }
+
+  // validate functions
+  var validate = {
+    // validate image url - if present, must start with a certain string
+    imageUrl: function(value) {
+      if (value) {
+        if (!/https:\/\/tipofftest.s3.amazonaws.com\//g.test(value)) {
+          document.getElementById('imageInputLabel').classList.add('danger');
+          return false;
+        }
+        document.getElementById('imageInputLabel').classList.remove('danger');
+        return true;
+      }
+      document.getElementById('imageInputLabel').classList.remove('danger');
+      return true;
+    },
+
+    // validate location - only numbers, commas, periods and not empty
+    location: function(value) {
+      if (!/^[0-9,\.]+$/g.test(value)) {
+        document.getElementById('getLocation').classList.add('danger');
+        return false;
+      }
+      document.getElementById('getLocation').classList.remove('danger');
+      return true;
+    },
+
+    // validate description - can't be empty
+    description: function(value) {
+      if (!value.trim()) {
+        document.getElementById('description').classList.add('danger');
+        return false;
+      }
+      document.getElementById('description').classList.remove('danger');
+      return true;
+    },
+
+    // validate size input - can't be null
+    size: function(value) {
+      if (!value.trim()) {
+        document.getElementById('size').classList.add('danger');
+        return false;
+      }
+      document.getElementById('size').classList.remove('danger');
+      return true;
+    },
+    
+    // validate type - at least one must be checked
+    type: function(elements) {
+      var typeArray = Array.from(elements);
+      var checked = typeArray.filter(function(field) {
+        return field.checked;
+      });
+      if (!checked.length > 0) {
+        document.getElementById('type').classList.add('danger');
+        return false;
+      }
+      document.getElementById('type').classList.remove('danger');
+      return true;
     }
   }
 
   // validate form data before posting to server
-  function validateFormData(data) {
+  function validateWholeForm(data) {
     var pass = true;
 
-    // check location
-    if (!data.location.value.trim()) {
-      document.getElementById('location').classList.add('danger');
-      pass = false;
-    }
-
-    // check description
-    if (!data.description.value.trim()) {
-      document.getElementById('description').classList.add('danger');
-      pass = false;
-    }
-
-    // check size
-    if (!data.size.value.trim()) {
-      document.getElementById('size').classList.add('danger');
-      pass = false;
-    }
-
-    // check type
-    var typeArray = Array.from(data.type.elements);
-    var checked = typeArray.filter(function(field) {
-      return field.checked;
-    });
-
-    if (!checked.length > 0) {
-      document.getElementById('type').classList.add('danger');
-      pass = false;
-    }
+    // check each form input
+    if (!validate.imageUrl(data.avatarUrl.value)) pass = false;
+    if (!validate.location(data.getLocation.value)) pass = false;
+    if (!validate.description(data.description.value)) pass = false;
+    if (!validate.size(data.size.value)) pass = false;
+    if (!validate.type(data.type.elements)) pass = false;
 
     return pass;
   }
 
-  // add event listeners to form inputs - checking for validation completion
-  var formInputs = document.getElementsByClassName('listen');
-  Array.from(formInputs).forEach(function(input) {
-    if (input.id === 'description' || input.id === 'size') {
-      input.addEventListener('input', function(e) {
-        removeWarning(e.target);
-      });
-    } else {
-      input.addEventListener('click', function(e) {
-        if (e.target.type === 'checkbox') {
-          removeWarning(document.getElementById('type'));
-        } else {
-          removeWarning(e.target);
-        }
-      });
-    }
+  // add event listeners to form inputs to check for validation completion
+  var form = document.getElementById('reportForm');
 
-    function removeWarning(target) {
-      if (target.classList.contains('danger')) {
-        target.classList.remove('danger');
-      }
-    }
+  form.imageInputLabel.addEventListener('click', function() {
+    form.imageInputLabel.classList.remove('danger');
+  });
+
+  form.getLocation.addEventListener('click', function() {
+    form.getLocation.classList.remove('danger');
+  });
+
+  form.description.addEventListener('input', function() {
+    validate.description(form.description.value);
+  });
+
+  form.size.addEventListener('input', function() {
+    validate.size(form.size.value);
+  });
+
+  form.type.addEventListener('click', function() {
+    validate.type(form.type.elements);
   });
 
   // create report data object and post to server
