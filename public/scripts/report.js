@@ -5,12 +5,13 @@
   var useLocationButton = document.getElementById('getLocationButton');
   useLocationButton.addEventListener('click', getLocation);
 
-  // get user's location
+  // find user's location
   function getLocation() {
     useLocationButton.innerHTML = 'Getting your location...';
     useLocationButton.classList.add('getting-location');
 
     if (navigator.geolocation) {
+      // store user's current location in the browser
       navigator.geolocation.getCurrentPosition(storePosition, function(err) {
         console.log('error:', err);
 
@@ -38,13 +39,12 @@
   };
 
   // SELECT LOCATION:
-
-  var closeButton = document.getElementById('closeButton');
-
   // close map view onclick
-  closeButton.addEventListener('click', function(event){
-    document.getElementById('selectView').classList.remove('expanded');
-  });
+  document.getElementById('closeButton').addEventListener('click', closeMapView);
+
+  function closeMapView(event){
+    return document.getElementById('selectView').classList.remove('expanded');
+  };
 
   // expand map view for location selection
   searchLocationButton.addEventListener('click', expandSearchView);
@@ -52,11 +52,9 @@
   function expandSearchView(){
     document.getElementById('selectView').classList.add('expanded');
   }
-  // target confirm button
-  var confirmButton = document.getElementById('useLocation');
 
   // onclick: pass lat long coords back to locationButton value
-  confirmButton.addEventListener('click', storeChosenCoords);
+  document.getElementById('selectedLocation').addEventListener('click', storeChosenCoords);
 
   function storeChosenCoords(e){
     document.getElementById('selectView').classList.remove('expanded');
@@ -66,7 +64,6 @@
 
     searchLocationButton.innerHTML = 'Location Selected';
     searchLocationButton.classList.add('using-location');
-
   }
 
   // add listener to report form

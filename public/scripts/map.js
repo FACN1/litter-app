@@ -45,20 +45,25 @@
     }
 
     if (document.getElementById('myMap').dataset.origin === "report") {
-      var marker;
-      myMap.on('click', function(e) {
-        if (e.originalEvent.target.id === "myMap") {
-          if (marker) {
-            myMap.removeLayer(marker);
-          }
-          // format coords for storage in value attribute
-          var coords = e.latlng.lat + ',' + e.latlng.lng;
-          document.getElementById('useLocation').setAttribute('value', coords);
-          marker = L.marker(e.latlng).addTo(myMap);
-        }
-      });
+      addMapClickListener(myMap);
     }
   }
+
+  // add marker when user clicks on map & store coords in confirm button value
+  function addMapClickListener(map) {
+    var marker;
+    map.on('click', function(e) {
+      if (e.originalEvent.target.id === "myMap") {
+        if (marker) {
+          map.removeLayer(marker);
+        }
+        // format coords for storage in value attribute
+        var coords = e.latlng.lat + ',' + e.latlng.lng;
+        document.getElementById('selectedLocation').setAttribute('value', coords);
+        marker = L.marker(e.latlng).addTo(map);
+      }
+    });
+  };
 
   // add Leaflet Geosearch plugin to map
   function addSearchBar(myMap) {
@@ -110,7 +115,7 @@
     function redirectToPost(event) {
       location.href = '/posts?id=' + event.target.options.id;
     };
-  }
+  };
 
   // call functions
   setUpMap();

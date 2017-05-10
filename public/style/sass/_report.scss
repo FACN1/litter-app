@@ -13,6 +13,8 @@
 }
 
 .my-map.report {
+  @include flexbox;
+  background-color: #ccc;
   box-shadow: 0 0 5px 1px #ccc;
   border: 15px solid white;
   width: 100%;
