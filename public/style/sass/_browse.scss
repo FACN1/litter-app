@@ -8,8 +8,8 @@
 }
 
 // style leaflet geosearch search box
-.my-map form {
-  width: calc(65vw - 55px);
+.my-map.browse form {
+  width: calc(100vw - 55px);
 }
 
 // hide leaflet attribution box

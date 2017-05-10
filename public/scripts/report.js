@@ -42,21 +42,21 @@
   // close map view onclick
   document.getElementById('closeButton').addEventListener('click', closeMapView);
 
-  function closeMapView(event){
+  function closeMapView(event) {
     return document.getElementById('selectView').classList.remove('expanded');
   };
 
   // expand map view for location selection
   searchLocationButton.addEventListener('click', expandSearchView);
 
-  function expandSearchView(){
+  function expandSearchView() {
     document.getElementById('selectView').classList.add('expanded');
   }
 
   // onclick: pass lat long coords back to locationButton value
   document.getElementById('selectedLocation').addEventListener('click', storeChosenCoords);
 
-  function storeChosenCoords(e){
+  function storeChosenCoords(e) {
     document.getElementById('selectView').classList.remove('expanded');
     useLocationButton.setAttribute('value', e.target.value);
     useLocationButton.innerHTML = 'Use Current Location';
@@ -70,7 +70,7 @@
   var reportForm = document.getElementById('reportForm');
   reportForm.addEventListener('submit', submitHandler);
 
-  function submitHandler(event){
+  function submitHandler(event) {
     event.preventDefault();
     // validate form data here
     extractFormData(event);
