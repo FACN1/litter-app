@@ -146,7 +146,7 @@
 
     // check each form input
     if (!validate.imageUrl(data.avatarUrl.value)) pass = false;
-    if (!validate.location(data.getLocation.value)) pass = false;
+    if (!validate.location(data.location.value)) pass = false;
     if (!validate.description(data.description.value)) pass = false;
     if (!validate.size(data.size.value)) pass = false;
     if (!validate.type(data.type.elements)) pass = false;
