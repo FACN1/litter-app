@@ -1,3 +1,9 @@
+.page-content {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
 .app-logo {
   width: 70vw;
   border-radius: 100%;
@@ -6,10 +12,14 @@
 }
 
 .app-description {
-  color: $text-off-black;
-  font: 20px $default;
-  font-style: italic;
+  text-align: center;
+  color: $waitrose-green;
+  font: bold 20px $default;
   margin-top: 20px;
+  span {
+    display: block;
+    margin: 5px;
+  }
 }
 
 .index-button-wrap {
@@ -24,8 +34,8 @@
   width: 60vw;
   margin: 10px;
   border-radius: 2px;
-  font: 20px $default;
-  color: $text-off-black;
-  background-color: white;
+  font: bold 20px $default;
+  color: white;
+  background-color: $waitrose-green;
   box-shadow: 0 0 5px 1px #ccc;
 }
