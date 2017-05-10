@@ -1,7 +1,11 @@
 (function() {
   // listen for image upload to browser
+  var imageLabel = document.getElementById('imageInputLabel');
   var imageInput = document.getElementById('imageFile');
   imageInput.addEventListener('change', function() {
+    imageLabel.innerHTML = 'Uploading...';
+    imageLabel.classList.add('pending');
+
     var file = imageInput.files[0];
     getSignedRequest(file);
   });
@@ -31,6 +35,10 @@
       document.getElementById('previewImage').src = dataUrl;
       document.getElementById('previewImage').classList.remove('hidden');
       document.getElementById('avatarUrl').value = dataUrl;
+
+      imageLabel.innerHTML = file.name;
+      imageLabel.classList.remove('pending');
+      imageLabel.classList.add('success');
     });
   };
 })();

@@ -16,28 +16,27 @@
       <img class="button form-button image hidden" id="previewImage" />
       <label class="button form-button" id="imageInputLabel" for="imageFile">Upload Image</label>
 
-      <input class="button form-button image-input" type="file" id="imageFile" accept="image/*" name="image" />
-      <input type="hidden" id="avatarUrl" name="avatarUrl" />
+      <input class="button form-button image-input" type="file" id="imageFile" accept="image/*" />
+      <input type="hidden" id="avatarUrl" />
 
       <!-- location input -->
       <div class="button form-button expanded-location" id="provideLocation">
-        <input type="hidden" id="location" name="location">
+        <input type="hidden" id="location">
 
-        <button class="button form-button" id="searchLocation" type="button">Search Location</button>
+        <button class="button form-button searchLocation" id="searchLocation" type="button">Search Location</button>
 
         <button class="button form-button" id="getLocation" type="button">Use Current Location</button>
-
       </div>
 
       <!-- description -->
-      <label class="input-label" for="descriptionInput">Description</label>
+      <label class="input-label" for="description">Description</label>
 
-      <textarea class="button form-button description-textarea" id="descriptionInput" placeholder="Maximum 200 characters" name="description" rows="8" cols="80" maxlength="200"></textarea>
+      <textarea class="button form-button description-textarea" id="description" placeholder="Maximum 200 characters" rows="8" cols="80" maxlength="200"></textarea>
 
       <!-- size select -->
-      <label class="input-label" for="sizeSelect">The waste fits in a...</label>
+      <label class="input-label" for="size">The waste fits in a...</label>
 
-      <select class="button form-button" id="sizeSelect" name="size">
+      <select class="button form-button" id="size">
         <option value="">Choose a size</option>
         <option value="Binbag">Binbag</option>
         <option value="Wheelbarrow">Wheelbarrow</option>
@@ -49,7 +48,7 @@
       <!-- type-select  -->
       <label class="input-label" for="type">Select any applicable tags</label>
 
-      <fieldset class="type-wrap" name="type">
+      <fieldset class="type-wrap" id="type">
 
         <div class="type-row">
           <div class="type-col">
