@@ -9,6 +9,7 @@ const waterfall = (input, tasks, callback) => {
     return waterfall(result, tasks.slice(1), callback);
   });
 };
+
 module.exports = {
   waterfall
 };

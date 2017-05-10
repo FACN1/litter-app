@@ -72,7 +72,7 @@
       var url = '/posts?id=' + res;
 
       // redirect user to new post URL
-      location.href=url;
+      location.href = url;
     });
   }
 })();

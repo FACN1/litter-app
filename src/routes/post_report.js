@@ -19,19 +19,19 @@ module.exports = {
       });
     };
 
-    // insert posts tags
+    // insert post tags
     const insertPostsTags = (insertData, callback) => {
       if (insertData.type_tags.length > 0) {
         return dbQueries.postReportTags(connPool, insertData, (error) => {
           if (error) return console.log(error);
+
           return callback(null, insertData);
         });
       }
       return callback(null, insertData);
     };
 
-    // asynchronously insert details and posts_tags
-    // passing post ID to callback
+    // asynchronously insert details and tags, passing post data to callback
     async.waterfall(
       formData, [insertDetails, insertPostsTags], (error, insertData) => {
         if (error) return console.log(error);
