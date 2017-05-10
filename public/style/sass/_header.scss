@@ -1,7 +1,7 @@
 .page-header {
   z-index: 3;
   @include flexbox;
-  justify-content: space-between;
+  justify-content: center;
   padding: 20px;
 
   color: white;
@@ -13,6 +13,9 @@
 }
 
 .toggle-dropdown-button {
+  position: fixed;
+  top: 18px;
+  right: 20px;
   font-size: 25px !important;
   background-color: transparent;
   color: white;

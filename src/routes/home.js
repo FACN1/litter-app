@@ -3,7 +3,7 @@ module.exports = {
   path: '/',
   handler: (request, reply) => {
     const context = {
-      title: 'Landing Page'
+      title: 'Tip Off'
     };
 
     return reply.view('home', context);
