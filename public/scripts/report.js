@@ -1,7 +1,6 @@
 (function() {
-
+  // location buttons
   var searchLocationButton = document.getElementById('searchLocation');
-  // add listener to get location button
   var useLocationButton = document.getElementById('getLocation');
   useLocationButton.addEventListener('click', getLocation);
 
@@ -28,17 +27,18 @@
   // store user's location in button attribute
   function storeCurrentLocation(position) {
     var coords = position.coords.latitude + ',' + position.coords.longitude;
-
     document.getElementById('location').setAttribute('value', coords);
+
     useLocationButton.innerHTML = 'Using current location';
     useLocationButton.classList.remove('getting-location');
     useLocationButton.classList.add('using-location');
+
     searchLocationButton.innerHTML = 'Search Location';
     searchLocationButton.classList.remove('using-location');
-
   };
 
-  // SELECT LOCATION:
+  // SELECT LOCATION
+
   // close map view onclick
   document.getElementById('closeButton').addEventListener('click', closeMapView);
 
@@ -51,7 +51,7 @@
 
   function expandSearchView() {
     document.getElementById('selectView').classList.add('expanded');
-  }
+  };
 
   // onclick: pass lat long coords back to locationButton value
   document.getElementById('selectedLocation').addEventListener('click', storeChosenCoords);
@@ -59,12 +59,13 @@
   function storeChosenCoords(e) {
     document.getElementById('selectView').classList.remove('expanded');
     document.getElementById('location').setAttribute('value', e.target.value);
+
     useLocationButton.innerHTML = 'Use Current Location';
     useLocationButton.classList.remove('using-location');
 
     searchLocationButton.innerHTML = 'Location Selected';
     searchLocationButton.classList.add('using-location');
-  }
+  };
 
   // add listener to report form
   var reportForm = document.getElementById('reportForm');
@@ -74,7 +75,7 @@
     event.preventDefault();
     // validate form data here
     extractFormData(event);
-  }
+  };
 
   // create report data object and post to server
   function extractFormData(event) {
@@ -108,10 +109,5 @@
       // redirect user to new post URL
       location.href = url;
     });
-
   }
-
-
-
-
 })();
