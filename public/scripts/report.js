@@ -7,7 +7,7 @@
   // find user's location
   function getLocation() {
     useLocationButton.innerHTML = 'Getting your location...';
-    useLocationButton.classList.add('getting-location');
+    useLocationButton.classList.add('pending');
 
     if (navigator.geolocation) {
       // store user's current location in the browser
@@ -15,8 +15,8 @@
         console.log('error:', err);
 
         useLocationButton.innerHTML = 'Error Getting Location';
-        useLocationButton.classList.remove('getting-location');
-        useLocationButton.classList.add('error-getting-location');
+        useLocationButton.classList.remove('pending');
+        useLocationButton.classList.add('error-pending');
       });
     } else {
       // non-support error handling
@@ -30,11 +30,11 @@
     document.getElementById('location').setAttribute('value', coords);
 
     useLocationButton.innerHTML = 'Using current location';
-    useLocationButton.classList.remove('getting-location');
-    useLocationButton.classList.add('using-location');
+    useLocationButton.classList.remove('pending');
+    useLocationButton.classList.add('success');
 
     searchLocationButton.innerHTML = 'Search Location';
-    searchLocationButton.classList.remove('using-location');
+    searchLocationButton.classList.remove('success');
   };
 
   // SELECT LOCATION
@@ -61,10 +61,10 @@
     document.getElementById('location').setAttribute('value', e.target.value);
 
     useLocationButton.innerHTML = 'Use Current Location';
-    useLocationButton.classList.remove('using-location');
+    useLocationButton.classList.remove('success');
 
     searchLocationButton.innerHTML = 'Location Selected';
-    searchLocationButton.classList.add('using-location');
+    searchLocationButton.classList.add('success');
   };
 
   // add listener to report form

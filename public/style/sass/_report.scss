@@ -117,11 +117,11 @@
   background-color: #fafafa;
 }
 
-.getting-location {
+.pending {
   color: orange;
 }
 
-.using-location {
+.success {
   color: $waitrose-green;
 }
 
@@ -152,7 +152,7 @@
 }
 
 .image {
-  height: calc(82vw - 30px);
+  height: auto;
 }
 
 .hidden {
