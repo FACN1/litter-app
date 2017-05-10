@@ -3,8 +3,7 @@
 
 
 <div class="select-view" id="selectView">
-    <button class="material-icons close-button" id="closeButton">arrow_back
-    </button>
+    <button class="material-icons close-button" id="closeButton">arrow_back</button>
     <button class="fa fa-check user-location" id="selectedLocation">
     </button>
   {{> map}}
@@ -23,10 +22,11 @@
 
       <!-- location input -->
       <div class="button form-button expanded-location" id="provideLocation">
+        <input type="hidden" id="location" name="location">
 
         <button class="button form-button" id="searchLocation" type="button" name="">Search Location</button>
 
-        <button class="button form-button" id="getLocationButton" type="button" name="location">Use Current Location</button>
+        <button class="button form-button" id="getLocation" type="button" name="location">Use Current Location</button>
 
       </div>
 

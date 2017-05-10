@@ -2,7 +2,7 @@
 
   var searchLocationButton = document.getElementById('searchLocation');
   // add listener to get location button
-  var useLocationButton = document.getElementById('getLocationButton');
+  var useLocationButton = document.getElementById('getLocation');
   useLocationButton.addEventListener('click', getLocation);
 
   // find user's location
@@ -12,7 +12,7 @@
 
     if (navigator.geolocation) {
       // store user's current location in the browser
-      navigator.geolocation.getCurrentPosition(storePosition, function(err) {
+      navigator.geolocation.getCurrentPosition(storeCurrentLocation, function(err) {
         console.log('error:', err);
 
         useLocationButton.innerHTML = 'Error Getting Location';
@@ -26,10 +26,10 @@
   };
 
   // store user's location in button attribute
-  function storePosition(position) {
+  function storeCurrentLocation(position) {
     var coords = position.coords.latitude + ',' + position.coords.longitude;
 
-    useLocationButton.setAttribute('value', coords);
+    document.getElementById('location').setAttribute('value', coords);
     useLocationButton.innerHTML = 'Using current location';
     useLocationButton.classList.remove('getting-location');
     useLocationButton.classList.add('using-location');
@@ -58,7 +58,7 @@
 
   function storeChosenCoords(e) {
     document.getElementById('selectView').classList.remove('expanded');
-    useLocationButton.setAttribute('value', e.target.value);
+    document.getElementById('location').setAttribute('value', e.target.value);
     useLocationButton.innerHTML = 'Use Current Location';
     useLocationButton.classList.remove('using-location');
 

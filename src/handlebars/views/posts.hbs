@@ -6,7 +6,9 @@
       <div class="fa fa-map-o map-icon"></div>
       View on Map
     </a>
-    <img class="post-box img" src="{{post.image_url}}" />
+    {{#if post.image_url}}
+      <img class="post-box img" src="{{post.image_url}}" />
+    {{/if}}
     <div class="post-box size">
       <span class="box-title">Size</span>
       {{post.size}}
