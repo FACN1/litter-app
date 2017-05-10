@@ -11,11 +11,10 @@ module.exports = {
     // insert report details
     const insertDetails = (postData, callback) => {
       const insertData = postData;
-      return dbQueries.postReportDetails(connPool, insertData, (postReportDetailsError, result) => {
-        if (postReportDetailsError) return console.log(postReportDetailsError);
+      return dbQueries.postReportDetails(connPool, insertData, (error, result) => {
+        if (error) return console.log(error);
 
-        const postId = result.rows[0].post_id;
-        insertData.post_id = postId;
+        insertData.post_id = result.rows[0].post_id;
         return callback(null, insertData);
       });
     };
@@ -23,13 +22,14 @@ module.exports = {
     // insert posts tags
     const insertPostsTags = (insertData, callback) => {
       if (insertData.type_tags.length > 0) {
-        return dbQueries.postReportTags(connPool, insertData, (postErr) => {
-          if (postErr) return console.log(postErr);
+        return dbQueries.postReportTags(connPool, insertData, (error) => {
+          if (error) return console.log(error);
           return callback(null, insertData);
         });
       }
       return callback(null, insertData);
     };
+
     // asynchronously insert details and posts_tags
     // passing post ID to callback
     async.waterfall(
