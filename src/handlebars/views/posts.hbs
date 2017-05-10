@@ -9,7 +9,9 @@
     </a>
 
     <!-- image -->
-    <img class="post-box img" src="{{post.image_url}}" />
+    {{#if post.image_url}}
+      <img class="post-box img" src="{{post.image_url}}" />
+    {{/if}}
 
     <!-- description -->
     <div class="post-box description">
