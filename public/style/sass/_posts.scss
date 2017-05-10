@@ -1,9 +1,11 @@
+// GENERAL
+
 .post-wrap {
   @include flexbox;
   justify-content: flex-start;
   flex-direction: column;
   width: 100%;
-  height: calc(100vh - #{$header-height});
+  min-height: calc(100vh - #{$header-height});
   padding: 20px;
 }
 
@@ -25,11 +27,27 @@
   top: -5px;
   left: -5px;
   padding: 5px;
-  border-radius: 1px;
+  border-radius: 2px;
   box-shadow: 0 0 5px 1px #ccc;
   font: bold 18px $default;
   color: #59882b;
   background-color: white;
+}
+
+// BOXES
+
+.view {
+  @include flexbox;
+  color: $waitrose-green;
+  font: bold 17px $default;
+}
+
+.map-icon {
+  margin-right: 10px;
+}
+
+.img {
+  padding: 15px;
 }
 
 .size {
@@ -38,25 +56,21 @@
   color: $waitrose-green;
 }
 
-.post-box.tags {
+.tags {
   @include flexbox;
   flex-wrap: wrap;
+  padding: 10px;
 }
 
 .tag {
   padding: 5px;
   margin: 5px;
+  border-radius: 3px;
   font: bold 15px $default;
   color: $waitrose-green;
   background-color: #eee;
 }
 
-.post-box.view {
-  @include flexbox;
-  color: $waitrose-green;
-  font: bold 17px $default;
-}
-
-.map-icon {
-  margin-right: 10px;
+.description {
+  font: 15px $default;
 }
