@@ -1,4 +1,3 @@
-
 .select-view {
   position: fixed;
   width: calc(91vw + 15px);
@@ -99,6 +98,10 @@
   margin-bottom: 15px;
 }
 
+.searchLocation {
+  margin-bottom: 7.5px !important;
+}
+
 .description-textarea {
   height: 80px;
   resize: none;
@@ -109,9 +112,9 @@
 }
 
 .expanded-location {
-  @include flexbox;
   flex-direction: column;
-  height: 110px;
+  height: auto;
+  background-color: #fafafa;
 }
 
 .getting-location {
