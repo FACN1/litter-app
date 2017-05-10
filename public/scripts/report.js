@@ -40,7 +40,7 @@
     event.preventDefault();
 
     if (validateWholeForm(event.target.elements)) {
-      // extractFormData(event);
+      extractFormData(event);
     }
   }
 
@@ -89,7 +89,7 @@
       document.getElementById('size').classList.remove('danger');
       return true;
     },
-    
+
     // validate type - at least one must be checked
     type: function(elements) {
       var typeArray = Array.from(elements);
