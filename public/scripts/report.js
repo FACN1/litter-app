@@ -1,6 +1,6 @@
 (function() {
   // add listener to get location button
-  var locationButton = document.getElementById('location');
+  var locationButton = document.getElementById('getLocation');
   locationButton.addEventListener('click', getLocation);
 
   // get user's location
@@ -111,7 +111,7 @@
 
     // add main info to reportData
     reportData.imageUrl = form.avatarUrl.value;
-    reportData.location = form.location.value;
+    reportData.location = form.getLocation.value;
     reportData.description = form.description.value;
     reportData.size = form.size.value;
 
