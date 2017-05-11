@@ -75,9 +75,19 @@
     event.preventDefault();
 
     if (validateWholeForm(event.target.elements)) {
-      extractFormData(event);
+      // post reportData to server
+      indexModule.makeRequest('/post-report', 'POST', JSON.stringify(extractFormData(event)),
+      function(err, res) {
+        if (err) console.log(err);
+
+        // extract url from response
+        var url = '/posts?id=' + res;
+
+        // redirect user to new post URL
+        location.href = url;
+      });
     }
-  }
+  };
 
   // validate functions
   var validate = {
@@ -186,7 +196,7 @@
 
     // add main info to reportData
     reportData.imageUrl = form.avatarUrl.value;
-    reportData.location = form.getLocation.value;
+    reportData.location = form.location.value;
     reportData.description = form.description.value;
     reportData.size = form.size.value;
 
@@ -201,15 +211,6 @@
         return typeBox.value;
       });
 
-    // post reportData to server
-    indexModule.makeRequest('/post-report', 'POST', JSON.stringify(reportData), function(err, res) {
-      if (err) console.log(err);
-
-      // extract url from response
-      var url = '/posts?id=' + res;
-
-      // redirect user to new post URL
-      location.href = url;
-    });
+    return reportData;
   }
 })();
