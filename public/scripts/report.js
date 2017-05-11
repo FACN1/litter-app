@@ -75,7 +75,19 @@
     event.preventDefault();
 
     if (validateWholeForm(event.target.elements)) {
-      extractFormData(event);
+
+      // post reportData to server
+      indexModule.makeRequest('/post-report', 'POST', JSON.stringify(extractFormData(event)),
+      function(err, res) {
+        if (err) console.log(err);
+
+        // extract url from response
+        var url = '/posts?id=' + res;
+
+        // redirect user to new post URL
+        location.href = url;
+      });
+
     }
   }
 
@@ -201,15 +213,7 @@
         return typeBox.value;
       });
 
-    // post reportData to server
-    indexModule.makeRequest('/post-report', 'POST', JSON.stringify(reportData), function(err, res) {
-      if (err) console.log(err);
+      return reportData;
 
-      // extract url from response
-      var url = '/posts?id=' + res;
-
-      // redirect user to new post URL
-      location.href = url;
-    });
   }
 })();
