@@ -89,7 +89,7 @@
       });
 
     }
-  }
+  };
 
   // validate functions
   var validate = {
