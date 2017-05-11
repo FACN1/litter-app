@@ -75,7 +75,6 @@
     event.preventDefault();
 
     if (validateWholeForm(event.target.elements)) {
-
       // post reportData to server
       indexModule.makeRequest('/post-report', 'POST', JSON.stringify(extractFormData(event)),
       function(err, res) {
@@ -87,7 +86,6 @@
         // redirect user to new post URL
         location.href = url;
       });
-
     }
   };
 
@@ -213,7 +211,6 @@
         return typeBox.value;
       });
 
-      return reportData;
-
+    return reportData;
   }
 })();
