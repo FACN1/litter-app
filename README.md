@@ -1,5 +1,9 @@
 # litter-app
-Facilitating the planning and organisation of fly-tip cleanups.
+Facilitating the planning and organisation of fly-tip cleanups, Tip-Off is a web app designed to allow users to report, and share information about existing litter and waste sites.
+
+Currently mobile-only
+
+Check out the [MVP here](https://tip-off.herokuapp.com/)
 
 Check out the [prototype](https://github.com/JWLD/litter-locator), or view it on [github pages](https://jwld.github.io/litter-locator/).
 
